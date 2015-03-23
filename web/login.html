@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+
+<head>
+	<title>
+		AcadmicFeed
+	</title>
+	
+	<style>
+		
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		body{
+			text-align: center;
+	
+		}
+		#main{
+			border: 1px solid black;
+			width: 1000px;
+			margin : 20px auto;
+			text-align: center;
+			background-color: gray;
+		}
+		
+	</style>
+	
+	<script>
+		function testfunc(){
+			var x;
+			x=document.getElementById("user").value;
+			if(x=="gleb")
+			{
+				
+			}
+			
+		}
+	</script>
+</head>
+
+
+<body>
+	<div id="main">
+	
+		<header>
+			<h1 id="test">Welcome to AcadmicFeed</h1>
+		</header>
+		
+		<section>
+			<form>
+				<p>UserName: <input id="user" type="text"/> </p>
+				<p>Password: <input id="password" type="text"/> </p>
+				<br>
+			</form>
+			<button style="width:60px;height:30px;" onclick="testfunc()">Login</button>
+			
+		</section>
+	
+	</div>
+
+</body>
+
 </html>
