@@ -14,6 +14,7 @@
 		}
 		
 		body{
+                        background:darkgray;
 			text-align: center;
 	
 		}
@@ -33,7 +34,12 @@
 			x=document.getElementById("user").value;
 			if(x=="gleb")
 			{
-				
+				alert("You gleb");
+			}
+                        
+                        if(x=="eli")
+			{
+				alert("hello eli popik");
 			}
 			
 		}
@@ -45,14 +51,17 @@
 	<div id="main">
 	
 		<header>
-			<h1 id="test">Welcome to AcadmicFeed</h1>
+			<img src="http://s27.postimg.org/brb18c6xt/header.png" alt="HTML5 Icon" style="width:641px;height:142px"/>
 		</header>
 		
 		<section>
-			<form>
-				<p>UserName: <input id="user" type="text"/> </p>
-				<p>Password: <input id="password" type="text"/> </p>
-				<br>
+                    
+                    <form><center><table><tr>
+                                <p><td>UserName:</td><td> <input id="user" type="text"/></td> </p></tr>
+                                <p><td>Password:</td><td> <input id="password" type="text"/></td> </p></tr>
+				
+                            
+                            </table></center>
 			</form>
 			<button style="width:60px;height:30px;" onclick="testfunc()">Login</button>
 			
