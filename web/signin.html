@@ -29,20 +29,7 @@
 	</style>
 	
 	<script>
-		function testfunc(){
-			var x;
-			x=document.getElementById("user").value;
-			if(x=="gleb")
-			{
-				alert("You gleb");
-			}
-                        
-                        if(x=="eli")
-			{
-				alert("hello eli popik");
-			}
-			
-		}
+		
 	</script>
 </head>
 
@@ -53,17 +40,39 @@
 
 		<section>
                     
-                    <form><center><table><tr>
-                                <p><td>First Name:</td><td> <input type="text" name="fname"/></td> </p></tr>
-                                <p><td>Last Name:</td><td> <input type="text" name="lname"/></td> </p></tr>
-				<p><td>User Name:</td><td> <input type="text" name="username"/></td> </p></tr>
-                                <p><td>Password:</td><td> <input type="password" name="userpassF"/></td> </p></tr>
-                                <p><td>Repeat password:</td><td> <input type="password" name="usernameS"/></td> </p></tr>
+                    <form><center><table>
+                                <p><tr><td><center><b>User Info</b></center></td></p>
+				<p><tr><td>User Name:</td><td> <input type="text" name="username"/></td> </p></tr>
+                                <p><tr><td>Password:</td><td> <input type="password" name="userpassF"/></td> </p></tr>
+                                <p><tr><td>Repeat password:</td><td> <input type="password" name="usernameS"/></td> </p></tr>
+                                <p><tr><td><center><b>Personal Info</b></center></td></p>
+                                <p><tr><td>First Name:</td><td> <input type="text" name="fname"/></td> </p></tr>
+                                <p><tr><td>Last Name:</td><td> <input type="text" name="lname"/></td> </p></tr>
+                                <p><tr><td>E-Mail:</td><td> <input type="text" name="emailF"/></td> </p></tr>
+                                <p><tr><td>Repeat E-Mail:</td><td> <input type="text" name="emailS"/></td> </p></tr>
+                                <p><tr><td>Department:</td><td>
+                                        <select name="department">
+                                            <option selected>Software</option>
+                                            <option>Machines</option>
+                                            <option>Building</option>
+                                            <option>Chemistry</option>
+                                            <option>Industrial and Management</option>
+                                        </select> 
+                                    </td> </p></tr>
+                                <p><tr><td>Year of study:</td><td>
+                                        <select name="syear">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select> 
+                                    </td> </p></tr>
                                 
+    
                             </table></center>
 			</form>
-			<input type="submit" value="Sign In" onclick="testfunc()"/>
-			
+			<input type="submit" value="Sign In"/>
+			<input type="reset" value="Clear all"/>
 		</section>
 
       
