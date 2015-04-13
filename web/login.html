@@ -20,8 +20,8 @@
 		}
 		#main{
 			border: 1px solid black;
-			width: 1000px;
-			margin : 20px auto;
+			width: 600px;
+			margin : 50px auto;
 			text-align: center;
 			background-color: gray;
 		}
@@ -48,27 +48,25 @@
 
 
 <body>
+    <form method="post">   
 	<div id="main">
-	
-		<header>
-			<img src="http://s27.postimg.org/brb18c6xt/header.png" alt="HTML5 Icon" style="width:641px;height:142px"/>
-		</header>
-		
+
 		<section>
                     
                     <form><center><table><tr>
-                                <p><td>UserName:</td><td> <input id="user" type="text"/></td> </p></tr>
-                                <p><td>Password:</td><td> <input id="password" type="text"/></td> </p></tr>
+                                <p><td>UserName:</td><td> <input type="text" name="username"/></td> </p></tr>
+                                <p><td>Password:</td><td> <input type="password" name="userpass"/></td> </p></tr>
 				
                             
                             </table></center>
 			</form>
-			<button style="width:60px;height:30px;" onclick="testfunc()">Login</button>
+			<input type="submit" value="login" onclick="testfunc()"/>
 			
 		</section>
-	
-	</div>
 
+      
+	</div>
+    </form> 
 </body>
 
 </html>
