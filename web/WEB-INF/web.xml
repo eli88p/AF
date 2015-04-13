@@ -28,6 +28,6 @@
   </description>
 	<error-page>  
        		<error-code>404</error-code>  
-         		<location>/error.html</location>  
+         		<location>/404.html</location>  
    		</error-page>
 </web-app>
