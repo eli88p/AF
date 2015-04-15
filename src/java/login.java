@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author eli88popik@gmail.com
  */
-@WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
-public class loginServlet extends HttpServlet {
+public class login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,14 +30,16 @@ public class loginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String un = request.getParameter("username");
+            String up = request.getParameter("userpass");
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet loginServlet</title>");            
+            out.println("<title>Servlet login</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet loginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<body style=background:darkgray>");
+            out.println("<h1>Servlet login with user name: " + un+" password: "+ up + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,29 +57,7 @@ public class loginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        
-        String username = request.getParameter("username");
-        String password = request.getParameter("userpass");
-        
-        PrintWriter out = response.getWriter();
-
-	// Set its title
-	
-	out.println("<HTML>");
-	out.println("<HEAD>");
-	
-	out.println("</HEAD>");
-
-	// Start on the body
-	out.println("<BODY>");
-
-	    
-	out.println("<FONT size='26pt'>");
-	out.println("user name is: "+username+" Password is: "+password);
-		
-        out.println("</FONT>");
-	out.println("</BODY></HTML>");
+        processRequest(request, response);
     }
 
     /**
@@ -95,8 +72,6 @@ public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        
     }
 
     /**
