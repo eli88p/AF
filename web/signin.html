@@ -36,7 +36,7 @@
                //Validate username and password text box in form
                 if ((document.getElementById('username').value.length === 0)||(document.getElementById('userpassF').value.length === 0)){
                     if (document.getElementById('username').value.length === 0){
-                        validationMessage = validationMessage + '  - User Name is missing\r\n';
+                        validationMessage = validationMessage + '  - User Name is missing!\r\n';
                         document.getElementById("username").style.borderColor = "#E34234";
                     }
                     if ((document.getElementById('userpassF').value.length === 0)||(document.getElementById('userpassS').value.length === 0)){
@@ -106,8 +106,41 @@
                         valid = false;
                     }
                 }
-   
                 
+                if(document.getElementById('fname').value === "") {
+                        validationMessage = validationMessage + '  - First Name is missing!\r\n';
+                        document.getElementById("fname").style.borderColor = "#E34234";
+                        valid = false;
+                }
+                    
+                if(document.getElementById('lname').value === "") {
+                    validationMessage = validationMessage + '  - Last Name is missing!\r\n';
+                    document.getElementById("lname").style.borderColor = "#E34234";
+                    valid = false;
+                }
+                
+                if(document.getElementById('emailF').value === "" || document.getElementById('emailS').value === "" ) {
+                    validationMessage = validationMessage + '  - E-Mail is missing!\r\n';
+                    document.getElementById("emailF").style.borderColor = "#E34234";
+                    document.getElementById("emailS").style.borderColor = "#E34234";
+                    valid = false;
+                }
+                else{
+                    re=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if(!re.test(document.getElementById('emailF').value)) {
+                        validationMessage = validationMessage + '  - Invalid email address!\r\n';
+                        document.getElementById("emailF").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+
+                    if(document.getElementById('emailF').value !== document.getElementById('emailS').value) {
+                        validationMessage = validationMessage + '  - There is different between E-Mails!\r\n';
+                        document.getElementById("emailF").style.borderColor = "#E34234";
+                        document.getElementById("emailS").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                }
+ 
                 if (valid === false){
                     alert(validationMessage);
                 }
