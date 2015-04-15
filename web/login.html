@@ -29,6 +29,76 @@
 	</style>
 	
 	<script>
+            function validateLoginForm(){
+                var valid = true;
+                var validationMessage = 'Please correct the following errors:\r\n';
+               
+                if ((document.getElementById('username').value.length == 0)||(document.getElementById('userpass').value.length == 0)){
+                    if (document.getElementById('username').value.length == 0){
+                        validationMessage = validationMessage + '  - User Name is missing\r\n';
+                        document.getElementById("username").style.borderColor = "#E34234";
+                    }
+                    if (document.getElementById('userpass').value.length == 0){
+                        validationMessage = validationMessage + '  - Password is missing\r\n';
+                        document.getElementById("userpass").style.borderColor = "#E34234";
+                    }
+                    valid = false;
+                }
+                
+                if(document.getElementById('userpass').value != "" && document.getElementById('username').value != "") {
+                    re = /^\w+$/;
+                    if(!re.test(document.getElementById('username').value)) {
+                        validationMessage = validationMessage + '  - Username must contain only letters, numbers and underscores!\r\n';
+                        document.getElementById("userpass").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+            
+                    if(document.getElementById('userpass').value.length < 6) {
+                        validationMessage = validationMessage + '  - Password must contain at least six characters!\r\n';
+                        document.getElementById("userpass").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                    
+                    if(document.getElementById('username').value.length < 6) {
+                        validationMessage = validationMessage + '  - Username must contain at least six characters!\r\n';
+                        document.getElementById("username").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                
+                    if(document.getElementById('userpass').value == document.getElementById('username').value) {
+                        validationMessage = validationMessage + '  - Password must be different from Username!!\r\n';
+                        document.getElementById("userpass").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+
+                    re = /[0-9]/;
+                    if(!re.test(document.getElementById('userpass').value)) {
+                        validationMessage = validationMessage + '  - Password must contain at least one number (0-9)!\r\n';
+                        document.getElementById("userpass").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+
+                    re = /[a-z]/;
+                    if(!re.test(document.getElementById('userpass').value)) {
+                        validationMessage = validationMessage + '  - Password must contain at least one lowercase letter (a-z)!\r\n';
+                        document.getElementById("userpass").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+
+                    re = /[A-Z]/;
+                    if(!re.test(document.getElementById('userpass').value)) {
+                        validationMessage = validationMessage + '  - Password must contain at least one uppercase letter (A-Z)!\r\n';
+                        document.getElementById("userpass").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                }
+   
+                
+                if (valid == false){
+                    alert(validationMessage);
+                }
+                return valid;
+            }
 		function testfunc(){
 			var x;
 			x=document.getElementById("username").value;
@@ -60,7 +130,7 @@
                             
                             </table></center>
 			</form>
-			<input type="submit" value="login" onclick="testfunc()"/>
+			<input type="submit" value="login" onclick="validateLoginForm()"/>
 			
 		</section>
 
