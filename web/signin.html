@@ -34,7 +34,7 @@
                 var valid = true;
                 var validationMessage = 'Please correct the following errors:\r\n';
                //Validate username and password text box in form
-                if ((document.getElementById('username').value.length === 0)||(document.getElementById('userpass').value.length === 0)){
+                if ((document.getElementById('username').value.length === 0)||(document.getElementById('userpassF').value.length === 0)){
                     if (document.getElementById('username').value.length === 0){
                         validationMessage = validationMessage + '  - User Name is missing\r\n';
                         document.getElementById("username").style.borderColor = "#E34234";
@@ -128,7 +128,7 @@
                                 <p><tr><td><center><b>User Info</b></center></td></p>
 				<p><tr><td>User Name:</td><td> <input type="text" id="username"/></td> </p></tr>
                                 <p><tr><td>Password:</td><td> <input type="password" id="userpassF"/></td> </p></tr>
-                                <p><tr><td>Repeat password:</td><td> <input type="password" id="usernameS"/></td> </p></tr>
+                                <p><tr><td>Repeat password:</td><td> <input type="password" id="userpassS"/></td> </p></tr>
                                 <p><tr><td><center><b>Personal Info</b></center></td></p>
                                 <p><tr><td>First Name:</td><td> <input type="text" id="fname"/></td> </p></tr>
                                 <p><tr><td>Last Name:</td><td> <input type="text" id="lname"/></td> </p></tr>
