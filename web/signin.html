@@ -40,7 +40,7 @@
                         document.getElementById("username").style.borderColor = "#E34234";
                     }
                     if ((document.getElementById('userpassF').value.length === 0)||(document.getElementById('userpassS').value.length === 0)){
-                        validationMessage = validationMessage + '  - Password is missing\r\n';
+                        validationMessage = validationMessage + '  - Password is missing!\r\n';
                         document.getElementById("userpassF").style.borderColor = "#E34234";
                         document.getElementById("userpassS").style.borderColor = "#E34234";
                     }
@@ -69,7 +69,7 @@
                     }
                 
                     if(document.getElementById('userpassF').value === document.getElementById('username').value) {
-                        validationMessage = validationMessage + '  - Password must be different from Username!!\r\n';
+                        validationMessage = validationMessage + '  - Password must be different from Username!\r\n';
                         document.getElementById("userpassF").style.borderColor = "#E34234";
                         document.getElementById("userpassS").style.borderColor = "#E34234";
                         valid = false;
