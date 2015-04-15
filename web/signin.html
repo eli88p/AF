@@ -29,6 +29,90 @@
 	</style>
 	
 	<script>
+            //Validate text box in form
+            function validateSignInForm(){
+                var valid = true;
+                var validationMessage = 'Please correct the following errors:\r\n';
+               //Validate username and password text box in form
+                if ((document.getElementById('username').value.length === 0)||(document.getElementById('userpass').value.length === 0)){
+                    if (document.getElementById('username').value.length === 0){
+                        validationMessage = validationMessage + '  - User Name is missing\r\n';
+                        document.getElementById("username").style.borderColor = "#E34234";
+                    }
+                    if ((document.getElementById('userpassF').value.length === 0)||(document.getElementById('userpassS').value.length === 0)){
+                        validationMessage = validationMessage + '  - Password is missing\r\n';
+                        document.getElementById("userpassF").style.borderColor = "#E34234";
+                        document.getElementById("userpassS").style.borderColor = "#E34234";
+                    }
+                    valid = false;
+                }
+                
+                if(document.getElementById('userpassF').value !== "" && document.getElementById('username').value !== "") {
+                    re = /^\w+$/;
+                    if(!re.test(document.getElementById('username').value)) {
+                        validationMessage = validationMessage + '  - Username must contain only letters, numbers and underscores!\r\n';
+                        document.getElementById("username").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+            
+                    if(document.getElementById('userpassF').value.length < 6) {
+                        validationMessage = validationMessage + '  - Password must contain at least six characters!\r\n';
+                        document.getElementById("userpassF").style.borderColor = "#E34234";
+                        document.getElementById("userpassS").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                    
+                    if(document.getElementById('username').value.length < 6) {
+                        validationMessage = validationMessage + '  - Username must contain at least six characters!\r\n';
+                        document.getElementById("username").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                
+                    if(document.getElementById('userpassF').value === document.getElementById('username').value) {
+                        validationMessage = validationMessage + '  - Password must be different from Username!!\r\n';
+                        document.getElementById("userpassF").style.borderColor = "#E34234";
+                        document.getElementById("userpassS").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+
+                    re = /[0-9]/;
+                    if(!re.test(document.getElementById('userpassF').value)) {
+                        validationMessage = validationMessage + '  - Password must contain at least one number (0-9)!\r\n';
+                        document.getElementById("userpassF").style.borderColor = "#E34234";
+                        document.getElementById("userpassS").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+
+                    re = /[a-z]/;
+                    if(!re.test(document.getElementById('userpassF').value)) {
+                        validationMessage = validationMessage + '  - Password must contain at least one lowercase letter (a-z)!\r\n';
+                        document.getElementById("userpassF").style.borderColor = "#E34234";
+                        document.getElementById("userpassS").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+
+                    re = /[A-Z]/;
+                    if(!re.test(document.getElementById('userpassF').value)) {
+                        validationMessage = validationMessage + '  - Password must contain at least one uppercase letter (A-Z)!\r\n';
+                        document.getElementById("userpassF").style.borderColor = "#E34234";
+                        document.getElementById("userpassS").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                    
+                    if(document.getElementById('userpassF').value !== document.getElementById('userpassS').value) {
+                        validationMessage = validationMessage + '  - There is different between passwords!\r\n';
+                        document.getElementById("userpassF").style.borderColor = "#E34234";
+                        document.getElementById("userpassS").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                }
+   
+                
+                if (valid === false){
+                    alert(validationMessage);
+                }
+                return valid;
+            }
 		
 	</script>
 </head>
@@ -42,16 +126,16 @@
                     
                     <form><center><table>
                                 <p><tr><td><center><b>User Info</b></center></td></p>
-				<p><tr><td>User Name:</td><td> <input type="text" name="username"/></td> </p></tr>
-                                <p><tr><td>Password:</td><td> <input type="password" name="userpassF"/></td> </p></tr>
-                                <p><tr><td>Repeat password:</td><td> <input type="password" name="usernameS"/></td> </p></tr>
+				<p><tr><td>User Name:</td><td> <input type="text" id="username"/></td> </p></tr>
+                                <p><tr><td>Password:</td><td> <input type="password" id="userpassF"/></td> </p></tr>
+                                <p><tr><td>Repeat password:</td><td> <input type="password" id="usernameS"/></td> </p></tr>
                                 <p><tr><td><center><b>Personal Info</b></center></td></p>
-                                <p><tr><td>First Name:</td><td> <input type="text" name="fname"/></td> </p></tr>
-                                <p><tr><td>Last Name:</td><td> <input type="text" name="lname"/></td> </p></tr>
-                                <p><tr><td>E-Mail:</td><td> <input type="text" name="emailF"/></td> </p></tr>
-                                <p><tr><td>Repeat E-Mail:</td><td> <input type="text" name="emailS"/></td> </p></tr>
+                                <p><tr><td>First Name:</td><td> <input type="text" id="fname"/></td> </p></tr>
+                                <p><tr><td>Last Name:</td><td> <input type="text" id="lname"/></td> </p></tr>
+                                <p><tr><td>E-Mail:</td><td> <input type="text" id="emailF"/></td> </p></tr>
+                                <p><tr><td>Repeat E-Mail:</td><td> <input type="text" id="emailS"/></td> </p></tr>
                                 <p><tr><td>Department:</td><td>
-                                        <select name="department">
+                                        <select id="department">
                                             <option selected>Software</option>
                                             <option>Machines</option>
                                             <option>Building</option>
@@ -60,7 +144,7 @@
                                         </select> 
                                     </td> </p></tr>
                                 <p><tr><td>Year of study:</td><td>
-                                        <select name="syear">
+                                        <select id="syear">
                                             <option selected>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -71,8 +155,8 @@
     
                             </table></center>
 			</form>
-			<input type="submit" value="Sign In"/>
-			<input type="reset" value="Clear all"/>
+                    <input type="submit" value="Sign In" onclick="validateSignInForm()"/>
+                    <input type="reset" value="Clear all"/>
 		</section>
 
       
