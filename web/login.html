@@ -111,21 +111,21 @@
 
 
 <body>
-    <form method="post">   
+    <form action="loginServlet.java">   
 	<div id="main">
 
 		<section>
                     
-                    <form>
+                   
                         <center><table><tr>
-                                <p><td>User Name:</td><td> <input type="text" id="username"/></td> </p></tr>
-                                <p><td>Password:</td><td> <input type="password" id="userpass"/></td> </p></tr>
+                                <p><td>User Name:</td><td> <input type="text" name="username" id="username"/></td> </p></tr>
+                                <p><td>Password:</td><td> <input type="password" name="userpass" id="userpass"/></td> </p></tr>
 				
                             
                             </table></center>
                         
 			<input type="submit" value="login" onclick="return validateLoginForm()"/>
-                    </form>
+    </form>
 		</section>
 
       
