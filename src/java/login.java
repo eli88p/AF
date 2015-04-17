@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author eli88popik@gmail.com
  */
 public class login extends HttpServlet {
+    
+    public static SystemUser user;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,6 +34,12 @@ public class login extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String un = request.getParameter("username");
             String up = request.getParameter("userpass");
+            
+            user = DataBase.FindUser(un, up);
+            
+            if(user == null)
+                user = DataBase.FindAdmin(un, up);
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -39,9 +47,10 @@ public class login extends HttpServlet {
             out.println("<title>Servlet login</title>");            
             out.println("</head>");
             out.println("<body style=background:darkgray>");
-            out.println("<h1>Servlet login with user name: " + un+" password: "+ up + "</h1>");
+            out.println("<h1>Servlet login with user name: " + user.getUserName()+" password: "+ user.getPassword()+ "</h1>");
             out.println("</body>");
             out.println("</html>");
+            
         }
     }
 
