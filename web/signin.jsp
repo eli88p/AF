@@ -158,23 +158,23 @@
 
 
 <body>
-    <form method="post">   
+    <form action="signIn">   
 	<div id="main">
 
 		<section>
                     
                         <center><table>
                                 <p><tr><td><center><b>User Info</b></center></td></p>
-				<p><tr><td>User Name:</td><td> <input type="text" id="username"/></td> </p></tr>
-                                <p><tr><td>Password:</td><td> <input type="password" id="userpassF"/></td> </p></tr>
-                                <p><tr><td>Repeat password:</td><td> <input type="password" id="userpassS"/></td> </p></tr>
+				<p><tr><td>User Name:</td><td> <input type="text" name="username" id="username"/></td> </p></tr>
+                                <p><tr><td>Password:</td><td> <input type="password" name="userpassF" id="userpassF"/></td> </p></tr>
+                                <p><tr><td>Repeat password:</td><td> <input type="password"  name="userpassS" id="userpassS"/></td> </p></tr>
                                 <p><tr><td><center><b>Personal Info</b></center></td></p>
-                                <p><tr><td>First Name:</td><td> <input type="text" id="fname"/></td> </p></tr>
-                                <p><tr><td>Last Name:</td><td> <input type="text" id="lname"/></td> </p></tr>
-                                <p><tr><td>E-Mail:</td><td> <input type="text" id="emailF"/></td> </p></tr>
-                                <p><tr><td>Repeat E-Mail:</td><td> <input type="text" id="emailS"/></td> </p></tr>
+                                <p><tr><td>First Name:</td><td> <input type="text" name="fname" id="fname"/></td> </p></tr>
+                                <p><tr><td>Last Name:</td><td> <input type="text" name="lname" id="lname"/></td> </p></tr>
+                                <p><tr><td>E-Mail:</td><td> <input type="text" name="emailF" id="emailF"/></td> </p></tr>
+                                <p><tr><td>Repeat E-Mail:</td><td> <input type="text" name="emailS" id="emailS"/></td> </p></tr>
                                 <p><tr><td>Department:</td><td>
-                                        <select id="department">
+                                        <select name="department" id="department">
                                             <option selected>Software</option>
                                             <option>Machines</option>
                                             <option>Building</option>
@@ -183,7 +183,7 @@
                                         </select> 
                                     </td> </p></tr>
                                 <p><tr><td>Year of study:</td><td>
-                                        <select id="syear">
+                                        <select name="syear" id="syear">
                                             <option selected>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -200,6 +200,18 @@
 
       
 	</div>
+        <%
+        if(request.getAttribute("errormsg")!=null){
+            String msg=request.getAttribute("errormsg").toString();
+
+            if(!msg.equals(""))
+            {
+                out.println("<b><font color='red'>"+msg.toString()+"</font></b>");
+            }
+
+        }
+
+        %>
     </form> 
 </body>
 

@@ -41,6 +41,7 @@ public class DataBase {
 
         return null;
     }
+    
 
     public static Admin FindAdmin(String user ,String Password)
     {
@@ -122,7 +123,7 @@ public class DataBase {
     }
 
 
-    public static void AddUser(User newUser)
+    public static boolean AddUser(User newUser)
     {
         if(!DataBase.isTaken(newUser.getUserName()))
         {
@@ -136,11 +137,15 @@ public class DataBase {
 
                 st.close();
                 con.close();
+                ;
             }
             catch (Exception e)
             {
-
+               return false;
             }
         }
+        else
+            return false;
+        return true;
     }
 }
