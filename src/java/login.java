@@ -57,7 +57,7 @@ public class login extends HttpServlet {
             if(user!=null)
             {
                 out.println("<body style=background:darkgray>");
-                out.println("<h1>Servlet login with user name: " + user.getUserName()+" password: "+ user.getPassword()+ "</h1>");
+                out.println("<h1>Hello " + user.getfName() +" "+ user.getlName()+ "</h1>");
             }
             out.println("</body>");
             out.println("</html>");

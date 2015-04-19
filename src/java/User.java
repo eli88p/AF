@@ -23,6 +23,8 @@ public class User extends SystemUser {
     public int getsYear() {
         return sYear;
     }
+    
+   
 
     public void setsYear(int sYear) {
         this.sYear = sYear;
