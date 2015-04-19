@@ -44,10 +44,16 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            out.println("<script>");
+            out.println("function userNull(){");
+            out.println("alert('User name or password not exist');}");
+            out.println("</script>");
             out.println("<title>Servlet login</title>");            
             out.println("</head>");
-            out.println("<body style=background:darkgray>");
-            out.println("<h1>Servlet login with user name: " + user.getUserName()+" password: "+ user.getPassword()+ "</h1>");
+            if(user==null)
+                out.println("<body style=background:darkgray onload='userNull()'>");
+            if(user!=null)
+                out.println("<h1>Servlet login with user name: " + user.getUserName()+" password: "+ user.getPassword()+ "</h1>");
             out.println("</body>");
             out.println("</html>");
             
