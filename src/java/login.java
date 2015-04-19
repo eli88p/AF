@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.RequestDispatcher;
 /**
  *
  * @author eli88popik@gmail.com
@@ -40,29 +35,29 @@ public class login extends HttpServlet {
             if(user == null)
                 user = DataBase.FindAdmin(un, up);
             
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<script>");
-            out.println("function userNull(){");
-            out.println("alert('User name or password not exist');}");
-            out.println("</script>");
-            out.println("<title>Servlet login</title>");            
-            out.println("</head>");
-            if(user==null){
-                out.println("<body style=background:darkgray onload='userNull()'>");
-                response.sendRedirect("login.html");
-            }
-            if(user!=null)
+            if(user != null)
             {
+                /* TODO output your page here. You may use following sample code. */
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("</head>");
                 out.println("<body style=background:darkgray>");
                 out.println("<h1>Hello " + user.getfName() +" "+ user.getlName()+ "</h1>");
+                out.println("</body>");
+                out.println("</html>");
             }
-            out.println("</body>");
-            out.println("</html>");
+            else
+            {
+                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+                request.setAttribute("errormsg", "Wrong Username or Password");
+                rd.forward(request, response);
+            }
         }
     }
+                
+            
+            
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

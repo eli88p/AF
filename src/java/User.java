@@ -1,6 +1,4 @@
-/**
- * Created by Gleb Nisman on 16/04/2015.
- */
+
 public class User extends SystemUser {
     private String department;
     private int sYear;

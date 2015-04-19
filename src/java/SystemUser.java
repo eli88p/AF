@@ -1,6 +1,4 @@
-/**
- * Created by Gleb Nisman on 16/04/2015.
- */
+
 public class SystemUser {
 
     private String fName;
