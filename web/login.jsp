@@ -137,7 +137,7 @@
 
             if(!msg.equals(""))
             {
-                out.print(msg.toString());
+                out.println("<b><font color='red'>"+msg.toString()+"</font></b>");
             }
 
         }
