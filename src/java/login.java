@@ -50,13 +50,17 @@ public class login extends HttpServlet {
             out.println("</script>");
             out.println("<title>Servlet login</title>");            
             out.println("</head>");
-            if(user==null)
+            if(user==null){
                 out.println("<body style=background:darkgray onload='userNull()'>");
+                response.sendRedirect("login.html");
+            }
             if(user!=null)
+            {
+                out.println("<body style=background:darkgray>");
                 out.println("<h1>Servlet login with user name: " + user.getUserName()+" password: "+ user.getPassword()+ "</h1>");
+            }
             out.println("</body>");
             out.println("</html>");
-            
         }
     }
 
