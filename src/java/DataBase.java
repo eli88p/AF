@@ -24,6 +24,8 @@ public class DataBase {
                     String email = rs.getString(5);
                     String dept = rs.getString(6);
                     int year = Integer.parseInt(rs.getString(7));
+                    st.close();
+                    con.close();
                     return new User(fn,ln,columnUser,columnPassword,email,dept,year);
                 }
 
@@ -42,7 +44,52 @@ public class DataBase {
         return null;
     }
     
+    public static boolean ValidtionUser(User user)
+    {
+        user.setVaild();
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            st.executeUpdate("update User set valid='Yes' where userName='" + user.getUserName() + "' and pass='" + user.getPassword() + "'");
+            st.close();
+            con.close();
+        }
 
+        catch (Exception e)
+        {
+            return false;
+        }
+        
+        return true;
+        
+    }
+    
+
+    public static boolean checkValid(User user)
+    {
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select valid from User where userName='" + user.getUserName() + "'"+" and password='"+user.getPassword()+"'");
+
+            st.close();
+            con.close();
+            if(rs.equals("Yes"))
+                return true;
+        }
+
+        catch (Exception e)
+        {
+
+        }
+
+        return false;
+    }
+    
     public static Admin FindAdmin(String user ,String Password)
     {
         try
@@ -61,6 +108,8 @@ public class DataBase {
                     String fn = rs.getString(3);
                     String ln = rs.getString(4);
                     String email = rs.getString(5);
+                    st.close();
+                    con.close();
                     return new Admin(fn,ln,columnUser,columnPassword,email);
                 }
 
@@ -92,25 +141,25 @@ public class DataBase {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("Select * from User where userName='" + user + "'");
 
-
+            st.close();
+            con.close();
             if(rs.next())
             {
                 return true;
             }
 
-            st.close();
-            con.close();
+          
 
             con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             st = con.createStatement();
             rs =  st.executeQuery("Select * from Admin where userName='" + user + "'");
+            st.close();
+            con.close();
             if(rs.next())
             {
                 return true;
             }
 
-            st.close();
-            con.close();
 
         }
 
@@ -132,24 +181,25 @@ public class DataBase {
             ResultSet rs = st.executeQuery("Select * from User where email='" + mail + "'");
 
 
+            
             if(rs.next())
             {
                 return true;
             }
-
             st.close();
             con.close();
+
 
             con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             st = con.createStatement();
             rs =  st.executeQuery("Select * from Admin where email='" + mail + "'");
+            st.close();
+            con.close();
             if(rs.next())
             {
                 return true;
             }
 
-            st.close();
-            con.close();
 
         }
 
@@ -171,12 +221,12 @@ public class DataBase {
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
                 Statement st = con.createStatement();
-                String query ="insert into User values ('" + newUser.getUserName() + "','" + newUser.getPassword() + "','" + newUser.getfName() + "','" + newUser.getlName() + "','" +newUser.getEmail() + "','" + newUser.getDepartment() + "','" + newUser.getsYear() + "')";
+                String query ="insert into User values ('" + newUser.getUserName() + "','" + newUser.getPassword() + "','" + newUser.getfName() + "','" + newUser.getlName() + "','" +newUser.getEmail() + "','" + newUser.getDepartment() + "','" + newUser.getsYear() + "','" + newUser.getValid() + "')";
                 st.execute(query);
 
                 st.close();
                 con.close();
-                ;
+                
             }
             catch (Exception e)
             {

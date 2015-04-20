@@ -1,19 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
+
 /**
  *
  * @author eli88popik@gmail.com
  */
-public class login extends HttpServlet {
-    
-    public static SystemUser user;
-
+public class emailValidation extends HttpServlet {
+    public static User user;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,35 +36,13 @@ public class login extends HttpServlet {
             
             user = DataBase.FindUser(un, up);
             
-            if(user == null)
-                user = DataBase.FindAdmin(un, up);
-            
-            if(user != null && DataBase.checkValid((User)user)==true)
-            {
-                /* TODO output your page here. You may use following sample code. */
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("</head>");
-                out.println("<body style=background:darkgray>");
-                out.println("<h1>Hello " + user.getfName() +" "+ user.getlName()+ "</h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
-            else
-            {
-                if(DataBase.checkValid((User)user)==false)
-                    request.setAttribute("errormsg", "Please confirm your account from e-Mail");
-                else
-                    request.setAttribute("errormsg", "Wrong Username or Password");
+            if(user != null && DataBase.ValidtionUser(user)!=false){
                 RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+                request.setAttribute("errormsg", "Validtion of user successfuly!");
                 rd.forward(request, response);
             }
         }
     }
-                
-            
-            
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
