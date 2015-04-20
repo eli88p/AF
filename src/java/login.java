@@ -49,10 +49,10 @@ public class login extends HttpServlet {
             }
             else
             {
-                if(DataBase.checkValid((User)user)==false)
-                    request.setAttribute("errormsg", "Please confirm your account from e-Mail");
-                else
+                if(user == null)
                     request.setAttribute("errormsg", "Wrong Username or Password");
+                else if(DataBase.checkValid((User)user)==false)
+                    request.setAttribute("errormsg", "Please confirm your account from e-Mail");
                 RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                 rd.forward(request, response);
             }

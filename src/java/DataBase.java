@@ -74,12 +74,20 @@ public class DataBase {
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("Select valid from User where userName='" + user.getUserName() + "'"+" and password='"+user.getPassword()+"'");
+            ResultSet rs = st.executeQuery("Select valid from User where userName='" + user.getUserName() + "'"+" and pass='"+user.getPassword()+"'");
 
-            st.close();
-            con.close();
-            if(rs.equals("Yes"))
-                return true;
+            
+            
+            if(rs.next()){
+                if(rs.getString(1).equals("Yes"))
+                {
+                    st.close();
+                    con.close();
+                    return true;
+                }
+                    
+            }
+            
         }
 
         catch (Exception e)

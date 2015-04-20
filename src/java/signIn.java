@@ -62,7 +62,7 @@ public class signIn extends HttpServlet {
                     String login = "academicfeed@gmail.com";
                     String password = "Af1234567";
                     
-                    String link = "<br>http://academicfeed.ddns.net/AF/emailValidation?username="+un+"&userpass="+up;
+                    String link = "<br>For account validation, Please enter: http://academicfeed.ddns.net/AF/emailValidation?username="+un+"&userpass="+up;
                     try {
                         Properties props = new Properties();
                         props.setProperty("mail.host", "smtp.gmail.com");
