@@ -11,7 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.util.Properties;
+import javax.mail.Session;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.InternetAddress;
+import javax.mail.*;
+import javax.mail.internet.AddressException;
 /**
  *
  * @author eli88popik@gmail.com
@@ -50,6 +55,84 @@ public class signIn extends HttpServlet {
                 }
                 else
                 {
+                    String from = "AcafemicFeed";
+                    String to = email;
+                    String subject = fn+" "+ln+" wellcom to academicFeed";
+                    String message = "Hello "+fn+" "+ln+" wellcom to academicFeed\nYour user name is: "+un+"\n"+"Your password: "+up;
+                    String login = "academicfeed@gmail.com";
+                    String password = "Af1234567";
+
+                    try {
+                        Properties props = new Properties();
+                        props.setProperty("mail.host", "smtp.gmail.com");
+                        props.setProperty("mail.smtp.port", "587");
+                        props.setProperty("mail.smtp.auth", "true");
+                        props.setProperty("mail.smtp.starttls.enable", "true");
+
+                        Authenticator auth = new SMTPAuthenticator(login, password);
+
+                        Session session = Session.getInstance(props, auth);
+
+                        MimeMessage msg = new MimeMessage(session);
+                        msg.setText(message);
+                        msg.setSubject(subject);
+                        msg.setFrom(new InternetAddress(from));
+                        msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+                        Transport.send(msg);
+
+                    } catch (AuthenticationFailedException ex) {
+                        request.setAttribute("ErrorMessage", "Authentication failed");
+
+                       
+
+                    } catch (AddressException ex) {
+                        request.setAttribute("ErrorMessage", "Wrong email address");
+
+                        
+
+                    } catch (MessagingException ex) {
+                        request.setAttribute("ErrorMessage", ex.getMessage());
+
+                       
+                    }
+                    from = "AcafemicFeed";
+                    to = "academicfeed@gmail.com";
+                    subject = fn+" "+ln+" new user";
+                    message = "new user "+fn+" "+ln+" \nuser name is: "+un+"\n"+"password: "+up;
+                    
+                    try {
+                        Properties props = new Properties();
+                        props.setProperty("mail.host", "smtp.gmail.com");
+                        props.setProperty("mail.smtp.port", "587");
+                        props.setProperty("mail.smtp.auth", "true");
+                        props.setProperty("mail.smtp.starttls.enable", "true");
+
+                        Authenticator auth = new SMTPAuthenticator(login, password);
+
+                        Session session = Session.getInstance(props, auth);
+
+                        MimeMessage msg = new MimeMessage(session);
+                        msg.setText(message);
+                        msg.setSubject(subject);
+                        msg.setFrom(new InternetAddress(from));
+                        msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+                        Transport.send(msg);
+
+                    } catch (AuthenticationFailedException ex) {
+                        request.setAttribute("ErrorMessage", "Authentication failed");
+
+                       
+
+                    } catch (AddressException ex) {
+                        request.setAttribute("ErrorMessage", "Wrong email address");
+
+                        
+
+                    } catch (MessagingException ex) {
+                        request.setAttribute("ErrorMessage", ex.getMessage());
+
+                       
+                    }
                     RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                     request.setAttribute("errormsg", "Creating of user successfuly!");
                     rd.forward(request, response);
@@ -69,6 +152,19 @@ public class signIn extends HttpServlet {
             out.println("<h1>Servlet signIn at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");*/
+        }
+    }
+    
+    private class SMTPAuthenticator extends Authenticator {
+
+        private PasswordAuthentication authentication;
+
+        public SMTPAuthenticator(String login, String password) {
+            authentication = new PasswordAuthentication(login, password);
+        }
+
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return authentication;
         }
     }
 
@@ -112,3 +208,5 @@ public class signIn extends HttpServlet {
     }// </editor-fold>
 
 }
+
+
