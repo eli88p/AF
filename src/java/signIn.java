@@ -58,10 +58,10 @@ public class signIn extends HttpServlet {
                     String from = "AcafemicFeed";
                     String to = email;
                     String subject = fn+" "+ln+" wellcom to academicFeed";
-                    String message = "Hello "+fn+" "+ln+" wellcom to academicFeed\nYour user name is: "+un+"\n"+"Your password: "+up;
+                    String message = "Hello "+fn+" "+ln+" welcome to academicFeed<br>Your user name is: "+un+"<br>"+"Your password: "+up+"<br>";
                     String login = "academicfeed@gmail.com";
                     String password = "Af1234567";
-
+                    String link = "<br>http://academicfeed.ddns.net/AF/";
                     try {
                         Properties props = new Properties();
                         props.setProperty("mail.host", "smtp.gmail.com");
@@ -77,6 +77,7 @@ public class signIn extends HttpServlet {
                         msg.setText(message);
                         msg.setSubject(subject);
                         msg.setFrom(new InternetAddress(from));
+                        msg.setContent("<img src=\"http://s23.postimg.org/jbp8vtyej/Icon.png\" style=\"width:85px;height:85px\"><br>" + message + link,"text/html");
                         msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
                         Transport.send(msg);
 
@@ -115,6 +116,7 @@ public class signIn extends HttpServlet {
                         msg.setText(message);
                         msg.setSubject(subject);
                         msg.setFrom(new InternetAddress(from));
+                        msg.setContent("<img src=\"http://s23.postimg.org/jbp8vtyej/Icon.png\" style=\"width:85px;height:85px\">" + message,"text/html");
                         msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
                         Transport.send(msg);
 
