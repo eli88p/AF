@@ -80,10 +80,10 @@ public class DataBase {
     }
 
 
-    /** isTaken returns True if the user name is taken
+    /** isUserTaken returns True if the user name is taken
         and False if not
      */
-    public static boolean isTaken(String user)
+    public static boolean isUserTaken(String user)
     {
         try
         {
@@ -122,10 +122,49 @@ public class DataBase {
         return false;
     }
 
+    public static boolean isEmailTaken(String mail)
+    {
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select * from User where email='" + mail + "'");
+
+
+            if(rs.next())
+            {
+                return true;
+            }
+
+            st.close();
+            con.close();
+
+            con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            st = con.createStatement();
+            rs =  st.executeQuery("Select * from Admin where email='" + mail + "'");
+            if(rs.next())
+            {
+                return true;
+            }
+
+            st.close();
+            con.close();
+
+        }
+
+        catch (Exception e)
+        {
+
+        }
+
+        return false;
+    }
+
 
     public static boolean AddUser(User newUser)
     {
-        if(!DataBase.isTaken(newUser.getUserName()))
+        if(!DataBase.isUserTaken(newUser.getUserName()) && !DataBase.isEmailTaken(newUser.getEmail()))
         {
             try
             {
