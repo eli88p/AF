@@ -12,7 +12,7 @@ import javax.servlet.RequestDispatcher;
  */
 public class login extends HttpServlet {
     
-    public static SystemUser user;
+    public static User user;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -25,27 +25,22 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
             String un = request.getParameter("username");
             String up = request.getParameter("userpass");
             
             user = DataBase.FindUser(un, up);
-            
-            if(user == null)
-                user = DataBase.FindAdmin(un, up);
-            
+       
             if(user != null && DataBase.checkValid((User)user)==true)
             {
-                /* TODO output your page here. You may use following sample code. */
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("</head>");
-                out.println("<body style=background-image: url(\"http://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg\");>");
-                out.println("<h1>Hello " + user.getfName() +" "+ user.getlName()+ "</h1>");
-                out.println("</body>");
-                out.println("</html>");
+                if(user.getDepartment().equals("Software"))
+                {
+                    RequestDispatcher rd = request.getRequestDispatcher("softwareIndex.jsp");
+                    request.getSession().setAttribute("user", user);
+                    
+                    rd.forward(request, response);
+                }
             }
             else
             {
