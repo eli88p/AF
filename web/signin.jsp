@@ -18,13 +18,62 @@
 			text-align: center;
 	
 		}
+                
+                .textbox { 
+                        background: white; 
+                        border: 5px solid white; 
+                        border-radius: 5px; 
+                        box-shadow: 0 0 5px 3px white; 
+                        color:black;
+                        outline: none; 
+                        height:23px; 
+                        width: 275px;
+                      } 
+                      
 		#main{
-			border: 1px solid black;
-			width: 600px;
-			margin : 50px auto;
 			text-align: center;
-			background-color: gray;
+			background-color: transparent;
 		}
+                
+                .myButton {
+                        -moz-box-shadow:inset 1px 23px 10px -9px #08444d;
+                        -webkit-box-shadow:inset 1px 23px 10px -9px #08444d;
+                        box-shadow:inset 1px 23px 10px -9px #08444d;
+                        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3c6978), color-stop(1, #027c8f));
+                        background:-moz-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:-webkit-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:-o-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:-ms-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:linear-gradient(to bottom, #3c6978 5%, #027c8f 100%);
+                        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c6978', endColorstr='#027c8f',GradientType=0);
+                        background-color:#3c6978;
+                        -moz-border-radius:9px;
+                        -webkit-border-radius:9px;
+                        border-radius:9px;
+                        border:3px solid #0a1014;
+                        display:inline-block;
+                        cursor:pointer;
+                        color:#f7f2f7;
+                        font-family:Impact;
+                        font-size:23px;
+                        padding:6px 15px;
+                        text-decoration:none;
+                        text-shadow:0px 1px 3px #010203;
+                }
+                .myButton:hover {
+                        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #027c8f), color-stop(1, #3c6978));
+                        background:-moz-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-webkit-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-o-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-ms-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:linear-gradient(to bottom, #027c8f 5%, #3c6978 100%);
+                        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#027c8f', endColorstr='#3c6978',GradientType=0);
+                        background-color:#027c8f;
+                }
+                .myButton:active {
+                        position:relative;
+                        top:1px;
+                }
 		
 	</style>
 	
@@ -159,22 +208,33 @@
 
 <body>
     <form action="signIn">   
-	<div id="main">
+        <div id="main" style="color:white">
 
 		<section>
                     
                         <center><table>
+                                <tr><td><br><br><br><br><br><br><br><br><td><br></tr>
+                                <tr>
                                 <p><tr><td><center><b>User Info</b></center></td></p>
-				<p><tr><td>User Name:</td><td> <input type="text" name="username" id="username"/></td> </p></tr>
-                                <p><tr><td>Password:</td><td> <input type="password" name="userpassF" id="userpassF"/></td> </p></tr>
-                                <p><tr><td>Repeat password:</td><td> <input type="password"  name="userpassS" id="userpassS"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+				<p><tr><td>User Name:</td><td> <input type="text" name="username" class="textbox" id="username"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+                                <p><tr><td>Password:</td><td> <input type="password" name="userpassF" class="textbox" id="userpassF"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+                                <p><tr><td>Repeat password:</td><td> <input type="password"  name="userpassS" class="textbox" id="userpassS"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
                                 <p><tr><td><center><b>Personal Info</b></center></td></p>
-                                <p><tr><td>First Name:</td><td> <input type="text" name="fname" id="fname"/></td> </p></tr>
-                                <p><tr><td>Last Name:</td><td> <input type="text" name="lname" id="lname"/></td> </p></tr>
-                                <p><tr><td>E-Mail:</td><td> <input type="text" name="emailF" id="emailF"/></td> </p></tr>
-                                <p><tr><td>Repeat E-Mail:</td><td> <input type="text" name="emailS" id="emailS"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+                                <p><tr><td>First Name:</td><td> <input type="text" name="fname" class="textbox" id="fname"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+                                <p><tr><td>Last Name:</td><td> <input type="text" name="lname" class="textbox" id="lname"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+                                <p><tr><td>E-Mail:</td><td> <input type="text" name="emailF" class="textbox" id="emailF"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+                                <p><tr><td>Repeat E-Mail:</td><td> <input type="text" name="emailS" class="textbox" id="emailS"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
                                 <p><tr><td>Department:</td><td>
-                                        <select name="department" id="department">
+                                        <select name="department" class="textbox" id="department">
                                             <option selected>Software</option>
                                             <option>Machines</option>
                                             <option>Building</option>
@@ -182,20 +242,22 @@
                                             <option>Industrial and Management</option>
                                         </select> 
                                     </td> </p></tr>
+                                <tr><td><br><td><br></tr>
                                 <p><tr><td>Year of study:</td><td>
-                                        <select name="syear" id="syear">
+                                       <select name="syear" class="textbox" id="syear">
                                             <option selected>1</option>
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
                                         </select> 
                                     </td> </p></tr>
+                                    <tr><td><br><td><br></tr>
                                 
     
                             </table></center>
 			</form>
-                    <input type="submit" value="Sign In" onclick="return validateSignInForm()"/>
-                    <input type="reset" value="Clear all"/>
+                    <input href="#" type="submit" class="myButton" value="Sign In" onclick="return validateSignInForm()"/>
+                    <input href="#" type="reset" class="myButton" value="Clear all"/>
 		</section>
 
       
