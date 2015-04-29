@@ -213,7 +213,6 @@
 		<section>
                     
                         <center><table>
-                                <tr><td><br><br><br><br><br><br><br><br><td><br></tr>
                                 <tr>
                                 <p><tr><td><center><b>User Info</b></center></td></p>
                                 <tr><td><br><td><br></tr>
@@ -222,8 +221,6 @@
                                 <p><tr><td>Password:</td><td> <input type="password" name="userpassF" class="textbox" id="userpassF"/></td> </p></tr>
                                 <tr><td><br><td><br></tr>
                                 <p><tr><td>Repeat password:</td><td> <input type="password"  name="userpassS" class="textbox" id="userpassS"/></td> </p></tr>
-                                <tr><td><br><td><br></tr>
-                                <p><tr><td><center><b>Personal Info</b></center></td></p>
                                 <tr><td><br><td><br></tr>
                                 <p><tr><td>First Name:</td><td> <input type="text" name="fname" class="textbox" id="fname"/></td> </p></tr>
                                 <tr><td><br><td><br></tr>
