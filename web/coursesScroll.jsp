@@ -14,12 +14,15 @@ and open the template in the editor.
 	
 		}
                 t1{
+                    font-family: "Impact";
                     color:white;
                 }
                 t1{
+                    font-family: "Impact";
                     color:white;
                 }
                 t2{
+                    font-family: "Impact";
                     color:white;
                     font-size: 150%;
                 }
