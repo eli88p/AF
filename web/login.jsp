@@ -2,10 +2,6 @@
 <html>
 
 <head>
-	<title>
-		AcadmicFeed
-	</title>
-	
 	<style>
 		
 	
@@ -16,7 +12,7 @@
 		
 		body{
 			text-align: center;
-	
+                        background-color: lightgray;
 		}
 		#main{
 			border: 1px solid black;

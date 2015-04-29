@@ -14,7 +14,7 @@
 		}
 		
 		body{
-                        background-repeat: no-repeat;
+                        background-color: lightgray;
 			text-align: center;
 	
 		}
