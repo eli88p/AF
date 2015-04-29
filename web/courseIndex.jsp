@@ -21,8 +21,8 @@
     
     
     <frameset cols="75%,15%" border="3">
-        <frame src="body.html" name="body">
-        <frame src="softwareCourses.jsp">
+        <frame src="body.html" name="bodyCourse">
+        <frame src="coursesScroll.jsp" noresize="noresize">
         
         <noframes>
             <body>

@@ -36,7 +36,7 @@ public class login extends HttpServlet {
             {
                 if(user.getDepartment().equals("Software"))
                 {
-                    RequestDispatcher rd = request.getRequestDispatcher("softwareIndex.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("courseIndex.jsp");
                     request.getSession().setAttribute("user", user);
                     
                     rd.forward(request, response);

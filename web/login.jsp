@@ -151,6 +151,8 @@
                 }
                 return valid;
             }
+            
+            
 	</script>
         
 </head>
@@ -178,6 +180,8 @@
       
 	</div>
         <%
+            
+        
         if(request.getAttribute("errormsg")!=null){
             String msg=request.getAttribute("errormsg").toString();
 
