@@ -6,12 +6,46 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style=background:darkgray>
-        <a href="body.html" target="body"><img src="http://s23.postimg.org/jbp8vtyej/Icon.png" style="width:85px;height:85px"/></a>
-        <img src="http://s27.postimg.org/jk1p0bcwx/header.png" alt="HTML5 Icon" style="width:541px;height:100px" hspace="300"/>
-    </body>
+<style>
+    
+ul {
+    float: left;
+    width: 85%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: relative;
+    left: 15%;
+}
+
+a {
+    float: left;
+    width: 6em;
+    color: white;
+    background-color: #000000;
+    font-family: "Impact", Charcoal, sans-serif;
+    padding: 1.2em 3.0em;
+    border-right: 1px solid white;
+}
+
+li:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+
+li {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+</style>
+</head>
+<body>
+<ul>
+<li><a href="body.html" target="body">Home</a></li>
+<li><a href="about.html" target="body">About</a></li>
+<li><a href="login.jsp" target="body">Log In</a></li>
+<li><a href="signin.jsp" target="body">Sign In</a></li>
+<li><a href="contact.html" target="body">Contact us</a></li>
+</ul>
+</body>
 </html>

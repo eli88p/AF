@@ -14,7 +14,7 @@
 		}
 		
 		body{
-                        background:darkgray;
+                        background-repeat: no-repeat;
 			text-align: center;
 	
 		}

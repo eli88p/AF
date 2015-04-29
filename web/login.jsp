@@ -8,13 +8,13 @@
 	
 	<style>
 		
+	
 		*{
 			margin: 0px;
 			padding: 0px;
 		}
 		
 		body{
-                        background:darkgray;
 			text-align: center;
 	
 		}
