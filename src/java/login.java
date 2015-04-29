@@ -42,7 +42,7 @@ public class login extends HttpServlet {
                 out.println("<html>");
                 out.println("<head>");
                 out.println("</head>");
-                out.println("<body style=background:darkgray>");
+                out.println("<body style=background-image: url(\"http://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg\");>");
                 out.println("<h1>Hello " + user.getfName() +" "+ user.getlName()+ "</h1>");
                 out.println("</body>");
                 out.println("</html>");
