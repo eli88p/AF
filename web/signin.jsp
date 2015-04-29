@@ -214,7 +214,7 @@
                     
                         <center><table>
                                 <tr>
-                                <p><tr><td><center><b>User Info</b></center></td></p>
+                                <p><tr><td><center><b><br></b></center></td></p>
                                 <tr><td><br><td><br></tr>
 				<p><tr><td>User Name:</td><td> <input type="text" name="username" class="textbox" id="username"/></td> </p></tr>
                                 <tr><td><br><td><br></tr>
