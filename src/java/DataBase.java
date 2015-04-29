@@ -8,6 +8,7 @@ public class DataBase {
     {
         try
         {
+            
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
