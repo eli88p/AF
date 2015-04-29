@@ -6,32 +6,71 @@
 		
 	
 		*{
-			margin: 0px;
-			padding: 0px;
+			margin: 0;
+			padding: 0;
 		}
 		
 		body{
 			text-align: center;
+                        position: left;
                         background-image: url("http://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg");
 		}
                   .textbox { 
                         background: white; 
-                        border: 1px solid red; 
+                        border: 5px solid white; 
                         border-radius: 5px; 
-                        box-shadow: 0 0 5px 3px red; 
-                        color: #666; 
+                        box-shadow: 0 0 5px 3px white; 
+                        color:black;
                         outline: none; 
                         height:23px; 
-                        width: 275px; 
+                        width: 275px;
                       } 
 		#main{
-			border: 1px solid black;
 			width: 600px;
 			margin : 50px auto;
 			text-align: center;
-			background-color: gray;
+			background-color: transparent;
 		}
-		
+                .myButton {
+                        -moz-box-shadow:inset 1px 23px 10px -9px #08444d;
+                        -webkit-box-shadow:inset 1px 23px 10px -9px #08444d;
+                        box-shadow:inset 1px 23px 10px -9px #08444d;
+                        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3c6978), color-stop(1, #027c8f));
+                        background:-moz-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:-webkit-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:-o-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:-ms-linear-gradient(top, #3c6978 5%, #027c8f 100%);
+                        background:linear-gradient(to bottom, #3c6978 5%, #027c8f 100%);
+                        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c6978', endColorstr='#027c8f',GradientType=0);
+                        background-color:#3c6978;
+                        -moz-border-radius:9px;
+                        -webkit-border-radius:9px;
+                        border-radius:9px;
+                        border:3px solid #0a1014;
+                        display:inline-block;
+                        cursor:pointer;
+                        color:#f7f2f7;
+                        font-family:Impact;
+                        font-size:23px;
+                        padding:6px 15px;
+                        text-decoration:none;
+                        text-shadow:0px 1px 3px #010203;
+                }
+                .myButton:hover {
+                        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #027c8f), color-stop(1, #3c6978));
+                        background:-moz-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-webkit-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-o-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-ms-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:linear-gradient(to bottom, #027c8f 5%, #3c6978 100%);
+                        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#027c8f', endColorstr='#3c6978',GradientType=0);
+                        background-color:#027c8f;
+                }
+                .myButton:active {
+                        position:relative;
+                        top:1px;
+                }
+
 	</style>
 	
 	<script>
@@ -121,12 +160,18 @@
     <form action="login">   
 	<div id="main">
 		<section>
-                        <center><table><tr>
-                                <p><td>User Name:</td><td> <input type="text" class="textbox" name="username" id="username"/></td> </p></tr>
-                                <p><td>Password:</td><td> <input type="password" class="textbox" name="userpass" id="userpass"/></td> </p></tr>
+                        <center><table>
+                                <tr><td><br><br><br><br><br><br><br><br><td><br></tr>
+                                <tr>
+                                <p><td><font style="color:white">User Name:</td><td> <input type="text" class="textbox" name="username" id="username"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
+                                <p><td><font style="color:white">Password:</td><td> <input type="password" class="textbox" name="userpass" id="userpass"/></td> </p></tr>
+                                <tr><td><br><td><br></tr>
                             </table></center>
                         
-			<input type="submit" value="login" onclick="return validateLoginForm()"/>
+			<input href="#" type="submit" class="myButton" value="login" onclick="return validateLoginForm()"/>
+                  
+                        
     </form>
 		</section>
 
