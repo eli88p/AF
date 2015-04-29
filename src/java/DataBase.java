@@ -8,7 +8,6 @@ public class DataBase {
     {
         try
         {
-            
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -88,6 +87,8 @@ public class DataBase {
                 }
                     
             }
+            st.close();
+            con.close();
             
         }
 
@@ -150,24 +151,30 @@ public class DataBase {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("Select * from User where userName='" + user + "'");
 
-            st.close();
-            con.close();
+
             if(rs.next())
             {
+                st.close();
+                con.close();
                 return true;
             }
-
+            
+            st.close();
+            con.close();
           
-
             con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             st = con.createStatement();
             rs =  st.executeQuery("Select * from Admin where userName='" + user + "'");
-            st.close();
-            con.close();
+
             if(rs.next())
             {
+                st.close();
+                con.close();
                 return true;
             }
+            
+            st.close();
+            con.close();
 
 
         }
@@ -193,6 +200,8 @@ public class DataBase {
             
             if(rs.next())
             {
+                st.close();
+                con.close();
                 return true;
             }
             st.close();
@@ -202,12 +211,15 @@ public class DataBase {
             con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             st = con.createStatement();
             rs =  st.executeQuery("Select * from Admin where email='" + mail + "'");
-            st.close();
-            con.close();
+
             if(rs.next())
             {
+                st.close();
+                con.close();
                 return true;
             }
+            st.close();
+            con.close();
 
 
         }
