@@ -14,6 +14,16 @@
 			text-align: center;
                         background-image: url("http://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg");
 		}
+                  .textbox { 
+                        background: white; 
+                        border: 1px solid red; 
+                        border-radius: 5px; 
+                        box-shadow: 0 0 5px 3px red; 
+                        color: #666; 
+                        outline: none; 
+                        height:23px; 
+                        width: 275px; 
+                      } 
 		#main{
 			border: 1px solid black;
 			width: 600px;
@@ -110,15 +120,10 @@
 <body>
     <form action="login">   
 	<div id="main">
-
 		<section>
-                    
-                   
                         <center><table><tr>
-                                <p><td>User Name:</td><td> <input type="text" name="username" id="username"/></td> </p></tr>
-                                <p><td>Password:</td><td> <input type="password" name="userpass" id="userpass"/></td> </p></tr>
-				
-                            
+                                <p><td>User Name:</td><td> <input type="text" class="textbox" name="username" id="username"/></td> </p></tr>
+                                <p><td>Password:</td><td> <input type="password" class="textbox" name="userpass" id="userpass"/></td> </p></tr>
                             </table></center>
                         
 			<input type="submit" value="login" onclick="return validateLoginForm()"/>
