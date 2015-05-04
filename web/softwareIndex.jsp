@@ -10,7 +10,7 @@
     <head>
         <style>
             body{
-                        background-image: url(../image/bg.jpg);
+                        background-image: url(image/bg.jpg);
 			font-size: 18;
 	
 		}

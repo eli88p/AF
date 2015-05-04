@@ -11,7 +11,7 @@
 		}
 		
 		body{
-                        background-image: url(../image/bg.jpg);
+                        background-image: url(image/bg.jpg);
 			text-align: center;
                         position: left;
                         

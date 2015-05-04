@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
             body{
-                background-image: url(../image/bg.jpg);
+                background-image: url(image/bg.jpg);
             }
         </style>
     </head>
