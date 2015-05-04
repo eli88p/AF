@@ -11,9 +11,10 @@
 		}
 		
 		body{
+                        background-image: url(../image/bg.jpg);
 			text-align: center;
                         position: left;
-                        background-image: url("http://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg");
+                        
 		}
                   .textbox { 
                         background: white; 

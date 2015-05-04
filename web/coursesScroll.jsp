@@ -9,7 +9,7 @@ and open the template in the editor.
       
         <style>
             body{
-                        background-image: url("http://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg");
+                        background-image:url(../image/bg.jpg);
 			font-size: 18;
 	
 		}
