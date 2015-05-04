@@ -151,6 +151,8 @@
                 }
                 return valid;
             }
+            
+            
 	</script>
         
 </head>
@@ -158,7 +160,7 @@
 
 <body>
     <form action="login">   
-	<div id="main">
+        <div id="main" style="font-family:Impact">
 		<section>
                         <center><table>
                                 <tr><td><br><br><br><br><br><br><br><br><td><br></tr>
@@ -178,6 +180,8 @@
       
 	</div>
         <%
+            
+        
         if(request.getAttribute("errormsg")!=null){
             String msg=request.getAttribute("errormsg").toString();
 
