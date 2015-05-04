@@ -1,18 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
+
 /**
  *
  * @author eli88popik@gmail.com
  */
-public class login extends HttpServlet {
-    
-    public static User user;
+public class softwareServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -25,37 +30,17 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String un = request.getParameter("username");
-            String up = request.getParameter("userpass");
+            String year = request.getParameter("stYear");
+            /* TODO output your page here. You may use following sample code. */
             
-            user = DataBase.FindUser(un, up);
-       
-            if(user != null && DataBase.checkValid((User)user)==true)
-            {
-                if(user.getDepartment().equals("Software"))
-                {
-                    RequestDispatcher rd = request.getRequestDispatcher("softwareIndex.jsp");
-                    request.getSession().setAttribute("user", user);
-                    
-                    rd.forward(request, response);
-                }
-            }
-            else
-            {
-                if(user == null)
-                    request.setAttribute("errormsg", "Wrong Username or Password");
-                else if(DataBase.checkValid((User)user)==false)
-                    request.setAttribute("errormsg", "Please confirm your account from e-Mail");
-                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-                rd.forward(request, response);
-            }
+            ArrayList<String> courses= DataBase.findCourses("Software",year);
+            RequestDispatcher rd = request.getRequestDispatcher("softwareScroll.jsp");
+            request.setAttribute("msg", courses);
+            rd.forward(request, response);
         }
     }
-                
-            
-            
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
