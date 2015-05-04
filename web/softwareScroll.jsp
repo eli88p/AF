@@ -2,7 +2,12 @@
 <%@page import="java.util.ArrayList"%>
 <html>
     <head>
-      
+        <script>
+            function logout()
+            {
+                parent.frames['head'].location.reload();
+            }
+        </script>
         <style>
             body{
                         background-image: url(image/bg.jpg);
@@ -83,19 +88,19 @@
         <form action="softwareServlet">
             <t1>Hello ${user.getfName()} ${user.getlName()}<br>
                 Department: ${user.getDepartment()} <br> Year: ${user.getsYear()}
-                <P align="right"><a href="logout.asp" target="body">Logout</a></P></t1>
+                <P align="right"><a id="logoutlink" onclick="logout();">Log Out</a></P></t1>
                 <br>
 
 
                         <t2>
-                            Select Year:<br>
-                            <select name="stYear" id="dropdown" onchange="">
+                            Select Year:
+                            <select name="stYear" id="dropdown" onchange="submit()">
                                 <option value="dropdown">Select one</option>
                                 <option value="1">First year</option>
                                 <option value="2">Second year</option>
                                 <option value="3">Third year</option>
                                 <option value="4">Fourth year</option>
-                            </select> <input href="#" type="submit" class="myButton" value="Show List"/>
+                            </select>
 
                         </t2>
 

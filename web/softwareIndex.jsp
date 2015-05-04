@@ -3,11 +3,13 @@
     Created on : Apr 29, 2015, 6:27:55 PM
     Author     : eli88popik@gmail.com
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+            parent.frames['head'].location.reload();
+        </script>
         <style>
             body{
                         background-image: url(image/bg.jpg);

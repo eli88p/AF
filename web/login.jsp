@@ -154,6 +154,7 @@
             }
             
             
+            
 	</script>
         
 </head>
@@ -180,7 +181,12 @@
 
       
 	</div>
+        
         <%
+            
+        if(session.getAttribute("user")==null){%>           
+        <script>parent.frames['head'].location.reload();</script>
+          <%}    
             
         
         if(request.getAttribute("errormsg")!=null){

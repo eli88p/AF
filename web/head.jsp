@@ -48,7 +48,19 @@ and open the template in the editor.
 <ul>
 <li><a href="body.html" target="body">Home</a></li>
 <li><a href="about.html" target="body">About</a></li>
-<li><a href="login.jsp" target="body">Log In</a></li>
+<li>
+   
+    <%
+        if(session.getAttribute("user")==null){
+            out.println("<a href='login.jsp' target='body'>Log In</a>");
+        }
+        else{
+            session.invalidate();
+            out.println("<a href='login.jsp' target='body'>Log Out</a>");
+            
+        }
+    %>
+</li>
 <li><a href="signin.jsp" target="body">Sign In</a></li>
 <li><a href="contact.html" target="body">Contact us</a></li>
 </ul>
