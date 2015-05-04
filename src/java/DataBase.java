@@ -2,6 +2,7 @@
 
 import javax.xml.crypto.Data;
 import java.sql.*;
+import java.util.ArrayList;
 public class DataBase {
 
     public static User FindUser(String user,String Password)
@@ -187,6 +188,9 @@ public class DataBase {
         return false;
     }
 
+    /** isEmailTaken returns True if the email is taken
+        and False if not
+     */
     public static boolean isEmailTaken(String mail)
     {
         try
@@ -257,5 +261,31 @@ public class DataBase {
         else
             return false;
         return true;
+    }
+    
+    public static ArrayList<String> findCourses(String depart ,String year)
+    {
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select cName from Courses where depart='" + depart + "' and cYear='"+ year + "'");
+            ArrayList<String> Courses = new ArrayList<String>();
+            while(rs.next())
+            {
+                Courses.add(rs.getString(1));
+            }
+            st.close();
+            con.close();
+            return Courses;
+            
+        }
+        catch(Exception e)
+        {
+            
+        }
+        
+        return null;
     }
 }
