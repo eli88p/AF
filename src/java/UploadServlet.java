@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import user.User;
    import java.io.File;
    import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ import java.io.PrintWriter;
    import javax.servlet.http.HttpServlet;
    import javax.servlet.http.HttpServletRequest;
    import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
    import org.apache.commons.fileupload.FileItem;
    import org.apache.commons.fileupload.disk.DiskFileItemFactory;
    import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -78,6 +80,7 @@ public class UploadServlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
          //process only if its multipart content
+        HttpSession session = request.getSession();
         if(ServletFileUpload.isMultipartContent(request)){
             try {
                 List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest( request);
@@ -87,11 +90,13 @@ public class UploadServlet extends HttpServlet {
                         resultFlag=true;
                         String name = new File(item.getName()).getName();
                         item.write( new File(UPLOAD_DIRECTORY + "/" + name));
+                        DataBase.AddFile(name, UPLOAD_DIRECTORY, (User)getServletContext().getAttribute("user"));
                     }
                 }
            if(resultFlag==true){
                //File uploaded successfully
                request.setAttribute("message", "File Uploaded Successfully");
+               
            }
            else{
                 request.setAttribute("message", "File Uploaded: please upload only JPEG or PNG images");
@@ -105,7 +110,7 @@ public class UploadServlet extends HttpServlet {
             request.setAttribute("message","Sorry this Servlet only handles file upload request");
         }
     
-        request.getRequestDispatcher("index.html").forward(request, response);
+        request.getRequestDispatcher("Testing.jsp").forward(request, response);
      
     }
   
