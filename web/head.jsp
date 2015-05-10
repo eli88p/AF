@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
+<%@ page import="user.User" %>
 <html>
     <head>
         <style>
@@ -43,21 +39,33 @@ and open the template in the editor.
                 filter: alpha(opacity=40);
             }
         </style>
+        <script>
+           
+        </script>
 </head>
 <body>
 <ul>
-<li><a href="body.html" target="body">Home</a></li>
+<li><%
+        User user=(User)session.getAttribute("user");
+        if(user==null){
+            out.println("<a href='body.html' target='body'>Home</a></li>");
+        }
+        else{
+            
+            out.println("<a href='"+user.getDepartment()+"Index.jsp' target='body'>Home</a>");
+            
+        }
+    %>
 <li><a href="about.html" target="body">About</a></li>
 <li>
    
     <%
-        if(session.getAttribute("user")==null){
+        if(user==null){
             out.println("<a href='login.jsp' target='body'>Log In</a>");
         }
         else{
-            session.invalidate();
             out.println("<a href='login.jsp' target='body'>Log Out</a>");
-            
+            session.invalidate();
         }
     %>
 </li>

@@ -1,4 +1,5 @@
 
+import user.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -6,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author eli88popik@gmail.com
@@ -25,7 +27,7 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession();
         try (PrintWriter out = response.getWriter()) {
             String un = request.getParameter("username");
             String up = request.getParameter("userpass");
@@ -36,9 +38,10 @@ public class login extends HttpServlet {
             {
                 if(user.getDepartment().equals("Software"))
                 {
-                    RequestDispatcher rd = request.getRequestDispatcher("softwareIndex.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("SoftwareIndex.jsp");
                     request.getSession().setAttribute("user", user);
-                    
+                    session.setAttribute("user", user);
+                    getServletContext().setAttribute("user", user);
                     rd.forward(request, response);
                 }
             }

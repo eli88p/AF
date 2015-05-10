@@ -1,5 +1,5 @@
 
-
+import user.User;
 import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.ArrayList;
@@ -287,5 +287,60 @@ public class DataBase {
         }
         
         return null;
+    }
+    
+    public static boolean isFileTaken(String fileName,String patch)
+    {
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select * from Files where patch='" + patch + "' and fileName='" + fileName +"'");
+            
+            if(rs.next())
+            {
+                st.close();
+                con.close();
+                return true;
+            }
+            st.close();
+            con.close();
+
+        }
+
+        catch (Exception e)
+        {
+
+        }
+
+        return false;
+    }
+
+    
+    public static boolean AddFile(String filename,String patch,User user)
+    {
+        if(!DataBase.isFileTaken(filename, patch))
+        {
+            try
+            {
+                Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+                Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+                Statement st = con.createStatement();
+                String query ="insert into Files values ('" + user.getUserName() + "','" + patch + "','" + filename + "','" + user.getDepartment() + "')";
+                st.execute(query);
+
+                st.close();
+                con.close();
+                
+            }
+            catch (Exception e)
+            {
+               return false;
+            }
+        }
+        else
+            return false;
+        return true;
     }
 }
