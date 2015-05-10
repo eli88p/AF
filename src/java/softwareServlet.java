@@ -37,6 +37,7 @@ public class softwareServlet extends HttpServlet {
             
             ArrayList<String> courses= DataBase.findCourses("Software",year);
             RequestDispatcher rd = request.getRequestDispatcher("softwareScroll.jsp");
+            
             request.setAttribute("msg", courses);
             rd.forward(request, response);
         }
