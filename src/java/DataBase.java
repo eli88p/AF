@@ -343,4 +343,33 @@ public class DataBase {
             return false;
         return true;
     }
+    
+    
+    public static ArrayList<String> findFiles(String depart ,String course)
+    {
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select patch,fileName from Files where depart='" + depart + "' and course='"+ course + "'");
+            ArrayList<String> Files = new ArrayList<String>();
+            String file;
+            while(rs.next())
+            {
+                file = rs.getString(1) + "//" + rs.getString(2);
+                Files.add(file);
+            }
+            st.close();
+            con.close();
+            return Files;
+            
+        }
+        catch(Exception e)
+        {
+            
+        }
+        
+        return null;
+    }
 }
