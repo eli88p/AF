@@ -1,4 +1,7 @@
+package db;
 
+
+import user.Admin;
 import user.User;
 import javax.xml.crypto.Data;
 import java.sql.*;
@@ -352,7 +355,7 @@ public class DataBase {
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("Select patch,fileName from Files where depart='" + depart + "' and course='"+ course + "'");
+            ResultSet rs = st.executeQuery("Select patch,fileName from Files where dep='" + depart + "' and course='"+ course + "'");
             ArrayList<String> Files = new ArrayList<String>();
             String file;
             while(rs.next())

@@ -1,9 +1,6 @@
-<%-- 
-    Document   : Testing
-    Created on : May 4, 2015, 2:32:15 PM
-    Author     : eli88popik@gmail.com
---%>
-
+<%@page import="db.DataBase"%>
+<%@page import="user.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="org.apache.commons.io.FilenameUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -83,14 +80,19 @@
                 }
         </style>
         <%
-            
-            session.setAttribute("course", FilenameUtils.removeExtension(request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1)).toString());
+            String course=FilenameUtils.removeExtension(request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1)).toString();
+            session.setAttribute("course", course);
+            ArrayList<String> listOfFiles= DataBase.findFiles("Software", course);
         %>
     </head>
     <body>
        <center>
             <br>
                 <a href="UploadPage.html">Upload</a>
+                <%
+                    for(int i=0;i<listOfFiles.size();i++)
+                        out.print(listOfFiles.get(i));
+                %>
             <br>
        </center>
     </body>

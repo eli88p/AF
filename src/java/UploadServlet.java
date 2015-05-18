@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import db.DataBase;
 import user.User;
    import java.io.File;
    import java.io.IOException;
