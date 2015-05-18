@@ -90,7 +90,7 @@ public class UploadServlet extends HttpServlet {
                         resultFlag=true;
                         String name = new File(item.getName()).getName();
                         item.write( new File(UPLOAD_DIRECTORY + "/" + name));
-                        DataBase.AddFile(name, UPLOAD_DIRECTORY, (User)getServletContext().getAttribute("user"));
+                        DataBase.AddFile(name, UPLOAD_DIRECTORY, (User)getServletContext().getAttribute("user"),(String)session.getAttribute("course"));
                     }
                 }
            if(resultFlag==true){

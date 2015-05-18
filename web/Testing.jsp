@@ -4,6 +4,7 @@
     Author     : eli88popik@gmail.com
 --%>
 
+<%@page import="org.apache.commons.io.FilenameUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -81,6 +82,10 @@
                         text-shadow:0px 1px 3px #010203;
                 }
         </style>
+        <%
+            
+            session.setAttribute("course", FilenameUtils.removeExtension(request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1)).toString());
+        %>
     </head>
     <body>
        <center>

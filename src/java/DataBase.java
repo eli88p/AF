@@ -318,7 +318,7 @@ public class DataBase {
     }
 
     
-    public static boolean AddFile(String filename,String patch,User user)
+    public static boolean AddFile(String filename,String patch,User user,String course)
     {
         if(!DataBase.isFileTaken(filename, patch))
         {
@@ -327,7 +327,7 @@ public class DataBase {
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
                 Statement st = con.createStatement();
-                String query ="insert into Files values ('" + user.getUserName() + "','" + patch + "','" + filename + "','" + user.getDepartment() + "')";
+                String query ="insert into Files values ('" + user.getUserName() + "','" + patch + "','" + filename + "','" + user.getDepartment() + "','" + course + "')";
                 st.execute(query);
 
                 st.close();
