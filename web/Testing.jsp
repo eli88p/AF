@@ -82,7 +82,7 @@
         <%
             String course=FilenameUtils.removeExtension(request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1)).toString();
             session.setAttribute("course", course);
-            ArrayList<String> listOfFiles= DataBase.findFiles("Software", course);
+            
         %>
     </head>
     <body>
@@ -90,8 +90,9 @@
             <br>
                 <a href="UploadPage.html">Upload</a>
                 <%
+                    ArrayList<String> listOfFiles= DataBase.findFiles("Software", course);
                     for(int i=0;i<listOfFiles.size();i++)
-                        out.print(listOfFiles.get(i));
+                        out.print("<br>"+"<a href='"+listOfFiles.get(i)+"'>"+i+"</a>"+"<br>");
                 %>
             <br>
        </center>
