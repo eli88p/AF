@@ -25,7 +25,7 @@ import org.apache.commons.io.FilenameUtils;
  * @author Shlomota
  */
 public class UploadServlet extends HttpServlet {
-    private final String UPLOAD_DIRECTORY = "C:\\Users\\Eli Popik\\Documents\\NetBeansProjects\\AF\\uploads";
+    private final String UPLOAD_DIRECTORY = "C:\\Users\\Eli Popik\\Documents\\NetBeansProjects\\AF\\web\\uploads";
     boolean resultFlag=false;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -91,7 +91,7 @@ public class UploadServlet extends HttpServlet {
                         resultFlag=true;
                         String name = new File(item.getName()).getName();
                         item.write( new File(UPLOAD_DIRECTORY + "/" + name));
-                        DataBase.AddFile(name, UPLOAD_DIRECTORY, (User)getServletContext().getAttribute("user"),session.getAttribute("course").toString());
+                        DataBase.AddFile(name, "/AF/uploads", (User)getServletContext().getAttribute("user"),session.getAttribute("course").toString());
                     }
                 }
            if(resultFlag==true){

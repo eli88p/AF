@@ -15,7 +15,13 @@
 		}
                 a:link {
                         color: white;
-                    }
+                        float: left;
+                        margin: 3px;
+                        }
+                
+                
+
+                    
 
                    
                     /* mouse over link */
@@ -54,7 +60,7 @@
                     text-align: center;
                 }
                 .myButton {
-                        -moz-box-shadow:inset 1px 23px 10px -9px #08444d;
+                     -moz-box-shadow:inset 1px 23px 10px -9px #08444d;
                         -webkit-box-shadow:inset 1px 23px 10px -9px #08444d;
                         box-shadow:inset 1px 23px 10px -9px #08444d;
                         background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3c6978), color-stop(1, #027c8f));
@@ -68,34 +74,67 @@
                         -moz-border-radius:9px;
                         -webkit-border-radius:9px;
                         border-radius:9px;
-                        border:2px solid #0a1014;
+                        border:3px solid #0a1014;
                         display:inline-block;
                         cursor:pointer;
                         color:#f7f2f7;
                         font-family:Impact;
-                        font-size:13px;
-                        padding:2px 6px;
+                        font-size:23px;
+                        padding:6px 15px;
                         text-decoration:none;
                         text-shadow:0px 1px 3px #010203;
                 }
+                .myButton:hover {
+                        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #027c8f), color-stop(1, #3c6978));
+                        background:-moz-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-webkit-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-o-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:-ms-linear-gradient(top, #027c8f 5%, #3c6978 100%);
+                        background:linear-gradient(to bottom, #027c8f 5%, #3c6978 100%);
+                        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#027c8f', endColorstr='#3c6978',GradientType=0);
+                        background-color:#027c8f;
+                }
+                .myButton:active {
+                        position:relative;
+                        top:1px;
+                }
+                h1{
+                    color: white;
+                    
+                }
         </style>
         <%
+            
             String course=FilenameUtils.removeExtension(request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1)).toString();
             session.setAttribute("course", course);
             
         %>
     </head>
     <body>
-       <center>
-            <br>
-                <a href="UploadPage.html">Upload</a>
+        <form action="UploadPage.jsp">
+            <h1><center>Course Name: <%out.println(course); %></center></h1>
+            <p align="right">
+            <input href="#" type="submit" class="myButton" value="Upload"/>
+            </p>
+            <br><br>
+            <center>
                 <%
+                    
                     ArrayList<String> listOfFiles= DataBase.findFiles("Software", course);
-                    for(int i=0;i<listOfFiles.size();i++)
-                        out.print("<br>"+"<a href='"+listOfFiles.get(i)+"'>"+i+"</a>"+"<br>");
+                    for(int i=0;i<listOfFiles.size();i++){
+                        out.print("<div>");
+                        if(listOfFiles.get(i).split("\\.")[1].equals("pdf"))
+                            out.print("<a href='"+listOfFiles.get(i)+"'><img src='image/pdf.png' style='width:48px;height:48px'><br>"+listOfFiles.get(i).split("\\\\")[1]+"</a>");
+                        if(listOfFiles.get(i).split("\\.")[1].equals("doc") || listOfFiles.get(i).split("\\.")[1].equals("docx"))
+                            out.print("<a href='"+listOfFiles.get(i)+"'><img src='image/doc.png' style='width:48px;height:48px'><br>"+listOfFiles.get(i).split("\\\\")[1]+"</a>");
+                        out.print("</div>");
+                        out.print(" ");
+                    }
+                        
                 %>
             <br>
-       </center>
+            </center>
+      </form>
     </body>
 </html>
 
