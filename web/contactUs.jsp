@@ -86,7 +86,7 @@ and open the template in the editor.
                         <center><table>
                               
             <tr>
-            <p><td><form action="contact.php" method="post"></td> </p></tr>
+            <p><td><form action="ContactUs"></td> </p></tr>
             <tr><td><br><td><br></tr>
             <p><td><font style="color:white">Your name: </td><td><input type="text" name="cu_name" class="textbox" value="${user.getfName()} ${user.getlName()}"> </td> </p></tr>
             <tr><td><br><td><br></tr>

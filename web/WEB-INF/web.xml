@@ -46,7 +46,15 @@
     </servlet>
     <servlet>
         <servlet-name>conectUs</servlet-name>
-        <servlet-class>email.conectUs</servlet-class>
+        <servlet-class>.conectUs</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConectUs</servlet-name>
+        <servlet-class>ConectUs</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactUs</servlet-name>
+        <servlet-class>ContactUs</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -75,6 +83,14 @@
     <servlet-mapping>
         <servlet-name>conectUs</servlet-name>
         <url-pattern>/conectUs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConectUs</servlet-name>
+        <url-pattern>/ConectUs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactUs</servlet-name>
+        <url-pattern>/ContactUs</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>
