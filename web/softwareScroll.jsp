@@ -12,6 +12,7 @@
             body{
                         background-image: url(image/bg.jpg);
 			font-size: 18;
+                        font-family: "Times New Roman", Times, serif;
 	
 		}
                 a:link {
@@ -38,9 +39,6 @@
                         color: gold;
                     }
 
-                t1{
-                    color:white;
-                }
                 t1{
                     color:white;
                 }
@@ -88,8 +86,8 @@
         <form action="softwareServlet">
             <t1>Hello ${user.getfName()} ${user.getlName()}<br>
                 Department: ${user.getDepartment()} <br> Year: ${user.getsYear()}
-                <P align="right"><a id="logoutlink" onclick="logout();">Log Out</a></P></t1>
-                <br>
+                </t1>
+                <br><br><br>
 
 
                         <t2>
