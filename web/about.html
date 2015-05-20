@@ -1,34 +1,203 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <style>
-            body{
-                background-image: url(image/bg.jpg);
-            }
-            text1
-            {
-                color: white;
-            }
-        </style>
-    </head>
-    <body>
-    <center><text1>
-        <h1><B>welcome,</B></h1>
-        <FONT SIZE = 5> 
-        <p>Academicfeed is a free service that lets you bring your docs, photos, exams and lessons of your academic department.Academicfeed was founded in June 2015 by six brilliant students from SCE - The College of engineering.Those students tired of emailing files to themselves and backup academic files in many different places, and share it with other students without order.</p>
-        <p>Academicfeed founded in hope to improve their main goal:</p>
-        <p>Provide to any department in SCE new platform for manage academic materials, share exams and lessons and send messages between students in the most comfortable way in one place.</p>
-        <p>Today, many students across SCE use academicfeed to always have their stuff at hand, share with others and work on team projects.</p>
-        <p>Are you new student in SCE and want to be in our family ? register now for free!</p>
-        <p>Contact us:</p>
-        <p>Mail: academicfeed@gmail.com</p>
-        <p>Phone: 077-7755775 </p>
-        </FONT>
-        </text1></center>
-    </body>
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-ie no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="PHwa6RoFVkzD7JxPz+ersiEAaRvayyArvBmdtkLHTeE=" name="csrf-token" />
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>AcademicFeed</title>
+  <meta property="og:description" content="WeTransfer is a free service to send big or small files from A to B">
+  <meta property="og:image" content="https://www.wetransfer.com/wt-facebook.png">
+  <meta name="description" content="WeTransfer is a free service to send big or small files from A to B">
+  <meta name="author" content="">
+  
+  
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+  <link rel="image_src" href="/wt-facebook.png">
+  <meta name="application-name" content="AcademicFeed"/> 
+  <meta name="msapplication-TileColor" content="#ffffff"/> 
+  <meta name="msapplication-TileImage" content="/wt-windows8.png"/>
+
+  <!-- CSS: implied media="all" -->
+  <link href="https://assets.wetransfer.net/assets/application-ce4da2e06e9dc44272055debf47db4d5.css" media="screen" rel="stylesheet" type="text/css" />
+  <style>
+  
+  #info h1 { text-align: center; padding-bottom: 25px; }
+  #slideshow { position: relative; width: 958px; height: 510px; left: -19px; }
+  .front,
+  .back,
+  .back div { position: absolute; top: 0; }
+  .front div { position: absolute; top: 30px; left: 102px; width: 590px; color: white }
+  .front { background: url(/assets/about/machine.png) no-repeat; height: 487px; width: 828px; left: 47px; }
+  .back { margin-top: 29px; height: 392px; width: 958px; }
+  .front div,
+  .back div { height: 100%; background-repeat: no-repeat; display: none; }
+  .back div { width: 100%; }
+  .front div img { float: left }
+  #slideshow .front div p { padding: 0; }
+  #slideshow .front div ul { list-style: disc; margin-left: 336px; margin-bottom: 22px; }
+  #slideshow .front div ul+p { margin-top: 1em; }
+  #slideshow .front div a:hover {
+    text-decoration: none;
+  }
+  #slideshow .front div a {
+    text-decoration: none;
+    font-family: "MuseoSansRounded-700",sans-serif;
+    margin-left: 23px;
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border-radius: 17px;
+    border: 1px solid #e0e0e0;
+    padding:7px 15px 7px 15px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e8e6e8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e8e6e8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e8e6e8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#e8e6e8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e8e6e8 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#e8e6e8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e6e8',GradientType=0 ); /* IE6-9 */
+  }
+  #slideshow h4 {
+    margin-left: 320px;
+    margin-top: 75px;
+    margin-bottom: 20px;
+    font-family: MuseoSansRounded-300;
+    font-size: 34px;
+    line-height: 43px;
+  }
+  #slideshow h4 em {
+    font-family: MuseoSansRounded-700;
+    font-style: normal;
+  }
+</style>
+
+
+  <!-- More ideas for your <head> here: h5bp.com/docs/#head-Tips -->
+
+  <!-- All JavaScript at the bottom, except for Modernizr and Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="https://assets.wetransfer.net/assets/modernizr-1070f70a970e977b57874f9512acec3b.js" type="text/javascript"></script>
+
+</head>
+
+<body class="info no_user" data-channel-limit-to-default-recipient="null" data-container="#panel" data-current-user="false" data-facebook="null" data-limit="false" data-plus="false" data-twitter="null" data-wrapper="#bottom">
+
+
+  <div id='menu-top'>
+<div id='sign-in' style='display: none;'>
+<form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="PHwa6RoFVkzD7JxPz+ersiEAaRvayyArvBmdtkLHTeE=" /></div><a href="/users/password/new" id="forgot_your_password">Forgot your password?</a>
+
+</form></div></div>
+
+  <div class="content" id="info">
+    <div id='info_label'>
+<a href="/">Academic Feed</a>
+</div>
+
+    
+    <h1>Hi, we&rsquo;re Academic Feed</h1>
+<div class='smoothloading' id='slideshow'>
+<div class='back slides'>
+<div style='background-image: url(https://assets.wetransfer.net/assets/about/bg1-9bc030899cdb1c5fc860c8e37ab09834.png)'></div>
+<div style='background-image: url(https://assets.wetransfer.net/assets/about/bg2-c948dc877882777c654f0e77c49eeed8.png)'></div>
+<div style='background-image: url(https://assets.wetransfer.net/assets/about/bg3-0cd3d83873fe8271913d4c134d05d510.png)'></div>
+<div style='background-image: url(https://assets.wetransfer.net/assets/about/bg4-d341f455fd125d8608b5cad466612e58.png)'></div>
+<div style='background-image: url(https://assets.wetransfer.net/assets/about/bg5-7b91f3c051c15289dad95a93fca5302b.png)'></div>
+<div style='background-image: url(https://assets.wetransfer.net/assets/about/bg6-a2a010bbd72a303c348dff9802809afe.png)'></div>
+</div>
+<div class='front slides'>
+<div id='slide-1'>
+<p><img src="https://assets.wetransfer.net/assets/about/wt-app-10728346bd9a2279e43442dd03e0c3d1.png" alt="Storage highlight"></p>
+
+<h4>The easiest way to send big files</h4>
+
+<ul>
+<li>It's free</li>
+<li>Send up to 2GB</li>
+<li>No registration</li>
+<li>Simple and secure</li>
+</ul>
+
+
+</div>
+<div id='slide-2'>
+<p><img src="https://assets.wetransfer.net/assets/about/wt-app-plus-8e6d51b2040c4532ffa256c16198d092.png" alt="Storage highlight"></p>
+
+<h4>AcademicFeed
+</h4>
+
+<ul>
+<li>Supersized transfers</li>
+<li>Download pages branded by you</li>
+<li>Full control over your transfers</li>
+<li>Extra layer of transfer protection</li>
+<li>Show your own backgrounds</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class='column-container spaced clearfix'>
+<div class='std-left'>
+<p class='intro'>
+Academicfeed is a free service that lets you bring your docs, photos, exams and lessons of your academic department.</p>
+<h2>
+Who we are
+</h2>
+<p>
+Academicfeed was founded in June 2015 by six brilliant students from SCE - The College of engineering.Those students tired of emailing files to themselves and backup academic files in many different places, and share it with other students without order.</p>
+</div>
+<div class='std-right'>
+<h2>
+Our mission
+</h2>
+<p>
+Academicfeed founded in hope to improve their main goal:Provide to any department in SCE new platform for manage academic materials, share exams and lessons and send messages between students in the most comfortable way in one place.Today, many students across SCE use academicfeed to always have their stuff at hand, share with others and work on team projects.</p>
+<h2>
+Do you ready?
+</h2>
+<p>Are you new student in SCE and want to be in our family ? register now for free!</a></p>
+</div>
+</div>
+  </div>
+    <div id='info_footer'>
+<ul id='disclaimer'>
+<li>
+<h4>&copy; 2015 AF Academic Feed. All rights reserved.</h4>
+<a href="/legal">Terms &amp; Policies</a>
+</li>
+</ul>
+<ul>
+<li>
+<h4>Contact</h4>
+</li>
+<li>
+<a href='http://academicfeed@gmail.com' target='_blank'>Email</a>
+</li>
+<li>
+<a href='050-559874' target='_blank'>Phone</a>
+</li>
+</ul>
+</div>
+
+  
+  <script src="https://assets.wetransfer.net/assets/application-b59f391694f54a1e79bf21ca65bda194.js" type="text/javascript"></script>
+
+  <script>
+  $('#slideshow').slideshow({interval_msec: 10000});
+</script>
+
+  
+</body>
 </html>
