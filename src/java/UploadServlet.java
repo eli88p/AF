@@ -88,20 +88,19 @@ public class UploadServlet extends HttpServlet {
               
                 for(FileItem item : multiparts){
                     if(!item.isFormField() && ValidateFileExtention(item)){
-                        resultFlag=true;
                         String name = new File(item.getName()).getName();
                         item.write( new File(UPLOAD_DIRECTORY + "/" + name));
-                        DataBase.AddFile(name, "/AF/uploads", (User)getServletContext().getAttribute("user"),session.getAttribute("course").toString());
+                        resultFlag=DataBase.AddFile(name, "/AF/uploads", (User)getServletContext().getAttribute("user"),session.getAttribute("course").toString());
                         
                     }
                 }
            if(resultFlag==true){
                //File uploaded successfully
-               request.setAttribute("message", "File Uploaded Successfully");
+               request.setAttribute("message", "File  Uploaded Successfully");
                
            }
            else{
-                request.setAttribute("message", "File Uploaded: please upload only JPEG or PNG images");
+                request.setAttribute("message", "File Uploaded: please upload only DOC or PDF or DOCX files! or file exist!");
 
            }
             } catch (Exception ex) {

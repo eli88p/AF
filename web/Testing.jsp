@@ -129,12 +129,8 @@
                     if(request.getAttribute("message")!=null){
                         String msg=request.getAttribute("message").toString();
 
-                    if(!msg.equals("")){%>
-                    <script>alert (<%
-                                     msg.toString();
-                                    %>)</script>
-                    
-                    <%}
+                    if(!msg.equals(""))
+                        out.print("<script>alert('"+msg+"');</script>");
                     }
 
     
