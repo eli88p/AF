@@ -88,11 +88,11 @@ and open the template in the editor.
             <tr>
             <p><td><form action="contact.php" method="post"></td> </p></tr>
             <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Your name: </td><td><input type="text" name="cf_name" class="textbox" value="${user.getfName()} ${user.getlName()}"> </td> </p></tr>
+            <p><td><font style="color:white">Your name: </td><td><input type="text" name="cu_name" class="textbox" value="${user.getfName()} ${user.getlName()}"> </td> </p></tr>
             <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Your e-mail: </td><td><input type="text" name="cf_email" class="textbox" value="${user.getEmail()}"></td> </p></tr>
+            <p><td><font style="color:white">Your e-mail: </td><td><input type="text" name="cu_email" class="textbox" value="${user.getEmail()}"></td> </p></tr>
             <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Message: </td><td><textarea name="cf_message" class="textarea"  rows="4" cols="50"></textarea></td> </p></tr>
+            <p><td><font style="color:white">Message: </td><td><textarea name="cu_message" class="textarea"  rows="4" cols="50"></textarea></td> </p></tr>
             <tr><td><br><td><br></tr>
             </table>
                             </center>
