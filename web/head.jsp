@@ -64,8 +64,8 @@
             out.println("<a href='login.jsp' target='body'>Log In</a>");
         }
         else{
-            out.println("<a href='login.jsp' target='body'>Log Out</a>");
-            session.invalidate();
+            out.println("<a href='/AF/Logout' accsskey='1' target='body'>Log Out</a>");
+            
         }
     %>
 </li>
