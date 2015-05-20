@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 /**
  *
  * @author Gleb Nisman
@@ -37,6 +38,7 @@ public class Logout extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             HttpSession s = request.getSession();
             s.invalidate();
+            getServletContext().setAttribute("user", null);
             RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
             rd.forward(request, response);
             

@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
             body{
@@ -103,6 +104,11 @@
                     
                 }
         </style>
+        <script>
+            function messageBox(msg){
+                alert(msg);
+            }
+        </script>
         <%
             
             String course=FilenameUtils.removeExtension(request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1)).toString();
@@ -112,6 +118,7 @@
     </head>
     <body>
         <form action="UploadPage.jsp">
+         
             <h1><center>Course Name: <%out.println(course); %></center></h1>
             <p align="right">
             <input href="#" type="submit" class="myButton" value="Upload"/>
@@ -119,14 +126,25 @@
             <br><br>
             <center>
                 <%
+                    if(request.getAttribute("message")!=null){
+                        String msg=request.getAttribute("message").toString();
+
+                    if(!msg.equals("")){%>
+                    <script>alert (<%
+                                     msg.toString();
+                                    %>)</script>
                     
+                    <%}
+                    }
+
+    
                     ArrayList<String> listOfFiles= DataBase.findFiles("Software", course);
                     for(int i=0;i<listOfFiles.size();i++){
                         out.print("<div>");
                         if(listOfFiles.get(i).split("\\.")[1].equals("pdf"))
-                            out.print("<a href='"+listOfFiles.get(i)+"'><img src='image/pdf.png' style='width:48px;height:48px'><br>"+listOfFiles.get(i).split("\\\\")[1]+"</a>");
+                            out.print("<a href='"+listOfFiles.get(i)+"'><img src='image/pdf.png' style='width:48px;height:48px'><br>"+listOfFiles.get(i).split("\\//")[1]+"</a>");
                         if(listOfFiles.get(i).split("\\.")[1].equals("doc") || listOfFiles.get(i).split("\\.")[1].equals("docx"))
-                            out.print("<a href='"+listOfFiles.get(i)+"'><img src='image/doc.png' style='width:48px;height:48px'><br>"+listOfFiles.get(i).split("\\\\")[1]+"</a>");
+                            out.print("<a href='"+listOfFiles.get(i)+"'><img src='image/doc.png' style='width:48px;height:48px'><br>"+listOfFiles.get(i).split("\\//")[1]+"</a>");
                         out.print("</div>");
                         out.print(" ");
                     }

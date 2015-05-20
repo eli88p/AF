@@ -19,6 +19,18 @@ and open the template in the editor.
                 outline: none; 
                 height:23px; 
                 width: 275px;
+                
+              } 
+              .textarea { 
+                background: white; 
+                border: 5px solid white; 
+                border-radius: 5px; 
+                box-shadow: 0 0 5px 3px white; 
+                color:black;
+                outline: none; 
+                height:200px; 
+                width: 275px;
+                resize: none;
               } 
             .myButton {
                 -moz-box-shadow:inset 1px 23px 10px -9px #08444d;
@@ -72,15 +84,15 @@ and open the template in the editor.
         <div id="main" style="font-family:Impact">
 		<section>
                         <center><table>
-            <tr><td><br><br><br><br><br><br><br><br><td><br></tr>
+                              
             <tr>
             <p><td><form action="contact.php" method="post"></td> </p></tr>
             <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Your name</td><td><input type="text" name="cf_name" class="textbox"></td> </p></tr>
+            <p><td><font style="color:white">Your name: </td><td><input type="text" name="cf_name" class="textbox" value="${user.getfName()} ${user.getlName()}"> </td> </p></tr>
             <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Your e-mail</td><td><input type="text" name="cf_email" class="textbox"></td> </p></tr>
+            <p><td><font style="color:white">Your e-mail: </td><td><input type="text" name="cf_email" class="textbox" value="${user.getEmail()}"></td> </p></tr>
             <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Message</td><td><textarea name="cf_message" class="textbox"></textarea></td> </p></tr>
+            <p><td><font style="color:white">Message: </td><td><textarea name="cf_message" class="textarea"  rows="4" cols="50"></textarea></td> </p></tr>
             <tr><td><br><td><br></tr>
             </table>
                             </center>

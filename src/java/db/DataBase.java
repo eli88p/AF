@@ -360,7 +360,7 @@ public class DataBase {
             String file;
             while(rs.next())
             {
-                file = rs.getString(1) + "\\" + rs.getString(2);
+                file = rs.getString(1) + "//" + rs.getString(2);
                 Files.add(file);
             }
             st.close();

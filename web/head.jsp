@@ -70,7 +70,7 @@
     %>
 </li>
 <li><a href="signin.jsp" target="body">Sign In</a></li>
-<li><a href="contact.html" target="body">Contact us</a></li>
+<li><a href="contactUs.jsp" target="body">Contact us</a></li>
 </ul>
 </body>
 </html>
