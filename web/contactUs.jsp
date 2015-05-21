@@ -80,26 +80,44 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-    <form action="ContactUs">   
-        <div id="main" style="font-family:Impact">
-		<section>
-                        <center><table>
-                              
-            <tr>
-            <p><td><form action="ContactUs"></td> </p></tr>
-            <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Your name: </td><td><input type="text" name="cu_name" class="textbox" value="${user.getfName()} ${user.getlName()}"> </td> </p></tr>
-            <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Your e-mail: </td><td><input type="text" name="cu_email" class="textbox" value="${user.getEmail()}"></td> </p></tr>
-            <tr><td><br><td><br></tr>
-            <p><td><font style="color:white">Message: </td><td><textarea name="cu_message" class="textarea"  rows="4" cols="50"></textarea></td> </p></tr>
-            <tr><td><br><td><br></tr>
-            </table>
-                            </center>
+        <form action="ContactUS">
+            <%
+                if(request.getAttribute("ErrorMessage")!=null){
+                    String msg=request.getAttribute("ErrorMessage").toString();
+
+                if(!msg.equals(""))
+                    out.print("<script>alert('"+msg+"');</script>");
+                }
+            %>
+            <div id="main" style="font-family:Impact">
+                <section>
+                    <center>
+                        <table>
+                            <tr><p><td></td> </p></tr>
+                            <tr><td><br><td><br></tr>
+                            <tr><p><td>
+                                <font style="color:white">Your name: 
+                            </td><td>
+                                <input type="text" name="cu_name" class="textbox" value="${user.getfName()} ${user.getlName()}">
+                            </td></p></tr>
+                            <tr><td><br><td><br></tr>
+                            <tr><p><td>
+                                <font style="color:white">Your e-mail: 
+                            </td><td>
+                                <input type="text" name="cu_email" class="textbox" value="${user.getEmail()}">
+                            </td> </p></tr>
+                            <tr><td><br><td><br></tr>
+                            <tr><p><td>
+                                <font style="color:white">Message: 
+                            </td><td>
+                                <textarea name="cu_message" class="textarea"  rows="4" cols="50"></textarea>
+                            </td></p></tr>
+                            <tr><td><br><td><br></tr>
+                        </table>
+                    </center>
+                </section>
             <input type="submit" value="Send" class="myButton">
-                <input type="reset" value="Clear" class="myButton">
-            
+            <input type="reset" value="Clear" class="myButton">
         </form>
-    
     </body>
 </html>

@@ -30,7 +30,7 @@
     </servlet>
     <servlet>
         <servlet-name>emailValidation</servlet-name>
-        <servlet-class>emailValidation</servlet-class>
+        <servlet-class>email.emailValidation</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>softwareServlet</servlet-name>
@@ -55,6 +55,10 @@
     <servlet>
         <servlet-name>ContactUs</servlet-name>
         <servlet-class>ContactUs</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactUS</servlet-name>
+        <servlet-class>email.ContactUS</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -91,6 +95,10 @@
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
         <url-pattern>/ContactUs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactUS</servlet-name>
+        <url-pattern>/ContactUS</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>

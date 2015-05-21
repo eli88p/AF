@@ -104,11 +104,7 @@
                     
                 }
         </style>
-        <script>
-            function messageBox(msg){
-                alert(msg);
-            }
-        </script>
+ 
         <%
             
             String course=FilenameUtils.removeExtension(request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1)).toString();
