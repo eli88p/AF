@@ -77,6 +77,16 @@
                         text-decoration:none;
                         text-shadow:0px 1px 3px #010203;
                 }
+                .textbox { 
+                        background: white; 
+                        border: 5px solid white; 
+                        border-radius: 5px; 
+                        box-shadow: 0 0 5px 3px white; 
+                        color:black;
+                        outline: none; 
+                        height:29px; 
+                        width: 120px;
+                      } 
         </style>
        
         <meta charset="UTF-8">
@@ -92,7 +102,7 @@
 
                         <t2>
                             Select Year:
-                            <select name="stYear" id="dropdown" onchange="submit()">
+                            <select name="stYear" id="dropdown" onchange="submit()" class="textbox">
                                 <option value="dropdown">Select one</option>
                                 <option value="1">First year</option>
                                 <option value="2">Second year</option>
