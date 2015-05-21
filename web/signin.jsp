@@ -28,6 +28,16 @@
                         outline: none; 
                         height:23px; 
                         width: 275px;
+                      }
+                      .dropdown { 
+                        background: white; 
+                        border: 5px solid white; 
+                        border-radius: 5px; 
+                        box-shadow: 0 0 5px 3px white; 
+                        color:black;
+                        outline: none; 
+                        height:30px; 
+                        width: 284px;
                       } 
                       
 		#main{
@@ -231,7 +241,7 @@
                                 <p><tr><td>Repeat E-Mail:</td><td> <input type="text" name="emailS" class="textbox" id="emailS"/></td> </p></tr>
                                 <tr><td><br><td><br></tr>
                                 <p><tr><td>Department:</td><td>
-                                        <select name="department" class="textbox" id="department">
+                                        <select name="department" class="dropdown" id="department">
                                             <option selected>Software</option>
                                             <option>Machines</option>
                                             <option>Building</option>
@@ -241,7 +251,7 @@
                                     </td> </p></tr>
                                 <tr><td><br><td><br></tr>
                                 <p><tr><td>Year of study:</td><td>
-                                       <select name="syear" class="textbox" id="syear">
+                                       <select name="syear" class="dropdown" id="syear">
                                             <option selected>1</option>
                                             <option>2</option>
                                             <option>3</option>
