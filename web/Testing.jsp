@@ -12,6 +12,7 @@
             body{
                         background-image: url(image/bg.jpg);
 			font-size: 18;
+                        font-family: "Times New Roman", Times, serif;
 	
 		}
                 a:link {
@@ -53,6 +54,11 @@
                 t2{
                     color:white;
                     font-size: 110%;
+                }
+                h1{
+                    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                    -moz-text-shadow: 0 0 5px #000;
+                    -webkit-text-shadow: 0 0 5px #000;
                 }
                 #courseBar{
                     width: 200px;
@@ -117,7 +123,7 @@
          
             <h1><center>Course Name: <%out.println(course); %></center></h1>
             <p align="right">
-            <input href="#" type="submit" class="myButton" value="Upload"/>
+            <input href="#" type="submit" class="myButton" value="Upload File"/>
             </p>
             <br><br>
             <center>

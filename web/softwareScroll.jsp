@@ -41,10 +41,11 @@
 
                 t1{
                     color:white;
+                    font-size: 110%;
                 }
                 t2{
                     color:white;
-                    font-size: 110%;
+                    font-size: 80%;
                 }
                 #courseBar{
                     width: 200px;
@@ -96,12 +97,9 @@
         <form action="softwareServlet">
             <t1>Hello ${user.getfName()} ${user.getlName()}<br>
                 Department: ${user.getDepartment()} <br> Year: ${user.getsYear()}
-                </t1>
-                <br><br><br>
-
-
+                <P align="right"><a href="profile.jsp" target="bodyCourse">Profile</a></P></t1>
                         <t2>
-                            Select Year:
+                            Select Year:</t2>
                             <select name="stYear" id="dropdown" onchange="submit()" class="textbox">
                                 <option value="dropdown">Select one</option>
                                 <option value="1">First year</option>
@@ -109,11 +107,11 @@
                                 <option value="3">Third year</option>
                                 <option value="4">Fourth year</option>
                             </select>
-
-                        </t2>
+                            
+                        
 
                 <div id="courseBar"><br><br>
-                        <t2>
+                        <t1>
                             <%
                                 if(request.getAttribute("msg")!=null){
                                        if(!(request.getAttribute("msg").equals("dropdown")))
@@ -132,7 +130,7 @@
                                 }
                                 %>
 
-                        </t2>
+                        </t1>
                     </div>
 
                 </form>

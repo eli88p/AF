@@ -39,4 +39,7 @@ public class User extends SystemUser {
     public void setsYear(int sYear) {
         this.sYear = sYear;
     }
+    
+    
+    
 }
