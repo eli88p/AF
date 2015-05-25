@@ -103,25 +103,25 @@
             }
         </script>
     </head>
-    <body>
-        <form action="updateUser">   
+    <body><t1>
+        <form action="updateUser">
+           
         <h1>Hello ${user.getfName()} ${user.getlName()}</h1><br>
-        <div><p align="left"><img src="image/head.png" height="128" width="128"></p></div>
-    <t1>
-        <center><table>
-                                <p><tr><td><center><b><br></b></center></td></p>
+        <table>  
+            
+               <center>
+                   
+                                <p><tr><p align="right"><img src="image/head.png" height="128" width="128"></p><td>First Name:</td><td> <input type="text" name="fname" class="textbox" id="fname" value='${user.getfName()}'/></td> </p></tr>
                                 <tr><td><br><td><br></tr>
-                                <p><tr><td>First Name:</td><td> <input type="text" name="fname" class="textbox" id="fname" value='${user.getfName()}'/></td> </p></tr>
-                                <tr><td><br><td><br></tr>
-                                <p><tr><td>Last Name:</td><td> <input type="text" name="lname" class="textbox" id="lname" value='${user.getlName()}'/></td> </p></tr>
-                                <tr><td><br><td><br></tr>
-                                <p><tr><td>E-Mail:</td><td> <input type="text" name="emailF" class="textbox" id="emailF" value='${user.getEmail()}' disabled/></td> </p></tr>
-                               <tr><td><br><td><br></tr>
-                                <p><tr><td>User name:</td><td> <input type="text" name="us" class="textbox" id="us" value='${user.getUserName()}' disabled/></td> </p></tr>
-                                <tr><td><br><td><br></tr>
-                                <p><tr><td>Password:</td><td> <input type="text" name="up" class="textbox" id="up" value='${user.getPassword()}' disabled/></td> </p></tr>
-                                <tr><td><br><td><br></tr>
-                                <p><tr><td>Year of study:</td><td>
+                                <p><td>Last Name:</td><td> <input type="text" name="lname" class="textbox" id="lname" value='${user.getlName()}'/></td> </p></tr>
+                                <td><br><td><br></tr>
+                                <p><td>E-Mail:</td><td> <input type="text" name="emailF" class="textbox" id="emailF" value='${user.getEmail()}' disabled/></td> </p></tr>
+                                <td><br><td><br></tr>
+                                <p><td>User name:</td><td> <input type="text" name="us" class="textbox" id="us" value='${user.getUserName()}' disabled/></td> </p></tr>
+                                <td><br><td><br></tr>
+                                <p><td>Password:</td><td> <input type="text" name="up" class="textbox" id="up" value='${user.getPassword()}' disabled/></td> </p></tr>
+                                <td><br><td><br></tr>
+                                <p><td>Year of study:</td><td>
                                        <select name="syear" class="dropdown" id="syear">
                                             <option selected>${user.getsYear()}</option>
                                             <option>1</option>
@@ -131,11 +131,13 @@
                                         </select> 
                                     </td> </p></tr>
                                     <tr><td><br><td><br></tr>
-                                
-    
-            </table></center></t1>
-    <input href="#" type="submit" class="myButton" value="Update" onclick="return validateSignInForm()"/>
-    <input href="#" type="reset" class="myButton" value="Clear all"/>
-    <input href="#" type="button" class="myButton" value="Back" onclick='history.go(-1);return true;'/>
-        </form></body>
+                  
+             </center>                    
+            </table>
+                <input href="#" type="submit" class="myButton" value="Update" onclick="return validateSignInForm()"/>
+                <input href="#" type="reset" class="myButton" value="Clear all"/>
+                <input href="#" type="button" class="myButton" value="Back" onclick='history.go(-1);return true;'/>
+            </form>
+        </t1>
+    </body>
 </html>

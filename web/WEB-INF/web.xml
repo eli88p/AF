@@ -17,6 +17,24 @@
 -->
 <web-app metadata-complete="true" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <display-name>Welcome to Tomcat</display-name>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <url-pattern>/AdminLoginServelt</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <!-- Please note following line .. its commented -->
+        <!-- <realm-name>Admin</realm-name> -->
+    </login-config>
+    <!-- Following section was missing -->
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
     <description>
      Welcome to Tomcat
   </description>
@@ -60,6 +78,10 @@
         <servlet-name>ContactUS</servlet-name>
         <servlet-class>email.ContactUS</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminLoginServelt</servlet-name>
+        <servlet-class>user.AdminLoginServelt</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -99,6 +121,10 @@
     <servlet-mapping>
         <servlet-name>ContactUS</servlet-name>
         <url-pattern>/ContactUS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServelt</servlet-name>
+        <url-pattern>/AdminLoginServelt</url-pattern>
     </servlet-mapping>
     <error-page>
         <error-code>404</error-code>

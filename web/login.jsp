@@ -161,11 +161,16 @@
 
 
 <body>
+    <form action="AdminLoginServelt" method="post">
+        <br><p align="left">
+            <input href="#" type="submit" class="myButton" value="Admin">
+        </p>
+    </form>
     <form action="login">   
         <div id="main" style="font-family:Impact">
 		<section>
                         <center><table>
-                                <tr><td><br><br><br><br><br><br><br><br><td><br></tr>
+                                <tr><td><br><br><br><br><br><td><br></tr>
                                 <tr>
                                 <p><td><font style="color:white">User Name:</td><td> <input type="text" class="textbox" name="username" id="username"/></td> </p></tr>
                                 <tr><td><br><td><br></tr>
@@ -173,13 +178,13 @@
                                 <tr><td><br><td><br></tr>
                             </table></center>
                         
-			<input href="#" type="submit" class="myButton" value="login" onclick="return validateLoginForm()"/>
+			<input href="#" type="submit" class="myButton" value="Login" onclick="return validateLoginForm()"/>
                   
                         
     </form>
-		</section>
-
-      
+		
+       
+      </section>
 	</div>
         
         <%
