@@ -309,6 +309,28 @@ public class DataBase {
         return true;
     }
     
+    public static boolean UpdateUserDep(String userName,String dep)
+    {
+            try
+            {
+                Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+                Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+                Statement st = con.createStatement();
+                String query ="UPDATE User SET depart='"+dep+"' where userName='"+userName+"'";
+                st.execute(query);
+
+                st.close();
+                con.close();
+                
+            }
+            catch (Exception e)
+            {
+               return false;
+            }
+           
+        return true;
+    }
+    
     public static ArrayList<String> findCourses(String depart ,String year)
     {
         try

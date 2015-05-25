@@ -44,7 +44,7 @@
                         color:black;
                         outline: none; 
                         height:30px; 
-                        width: 284px;
+                        width: 180px;
                       } 
                       
 		#main{
@@ -72,7 +72,7 @@
                         cursor:pointer;
                         color:#f7f2f7;
                         font-family:Impact;
-                        font-size:23px;
+                        font-size:16px;
                         padding:6px 15px;
                         text-decoration:none;
                         text-shadow:0px 1px 3px #010203;
@@ -123,32 +123,59 @@
                 </select></td><td> 
                     <input href="#" type="submit" class="myButton" value="Block User"/>
                 </td></tr> 
-        </table>
+        
                  </form>    
                 
-                <form action="unblockUser">
-        <table>
+        <form action="unblockUser">
             
-            <tr><td>Select user name : <td></td></td>
-                <td>
-                    
-                <select name="userN" class="dropdown" id="userN">
-                    
-                    <%
-                        
-                        if(users.get(0).getValid().equals("No"))
-                            out.println("<option selected>"+users.get(0).getUserName().toString()+"</option>");
-                        for(int i=1;i<users.size();i++)
-                        {
-                            if(users.get(i).getValid().equals("No"))
+
+                <tr><td>Select user name : <td></td></td>
+                    <td>
+
+                    <select name="userN" class="dropdown" id="userN">
+
+                        <%
+
+                            if(users.get(0).getValid().equals("No"))
+                                out.println("<option selected>"+users.get(0).getUserName().toString()+"</option>");
+                            for(int i=1;i<users.size();i++)
+                            {
+                                if(users.get(i).getValid().equals("No"))
+                                    out.println("<option>"+users.get(i).getUserName().toString()+"</option>");
+                            }
+                        %>
+                    </select></td><td> 
+                        <input href="#" type="submit" class="myButton" value="Unblock User"/>
+                    </td></tr> 
+            
+        </form>
+        <form action="updateDept">
+            
+
+                <tr><td>Select user name : <td></td></td>
+                    <td>
+                    <select name="userNDep" class="dropdown" id="userNDep">
+                        <%
+                            for(int i=0;i<users.size();i++)
+                            {
                                 out.println("<option>"+users.get(i).getUserName().toString()+"</option>");
-                        }
-                    %>
-                </select></td><td> 
-                    <input href="#" type="submit" class="myButton" value="Unblock User"/>
-                </td></tr> 
-        </table>
-                 </form>  
+                            }
+                        %>
+                    </select>
+                    </td></tr><tr><td></td><td></td>
+                    <td>
+                    <select name="userDep" class="dropdown" id="userDep">
+                        <option selected>Software</option>
+                        <option>Machines</option>
+                        <option>Chemistry</option>
+                        <option>Electrical</option>
+                    </select>
+                    </td>
+                    <td> 
+                        <input href="#" type="submit" class="myButton" value="Update User Depatment"/>
+                    </td></tr> 
+            </table>
+        </form>  
     </center>
     </body>
 </html>
