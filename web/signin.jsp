@@ -244,9 +244,8 @@
                                         <select name="department" class="dropdown" id="department">
                                             <option selected>Software</option>
                                             <option>Machines</option>
-                                            <option>Building</option>
                                             <option>Chemistry</option>
-                                            <option>Industrial and Management</option>
+                                            <option>Electrical</option>
                                         </select> 
                                     </td> </p></tr>
                                 <tr><td><br><td><br></tr>
