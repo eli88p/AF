@@ -1,26 +1,27 @@
+package courses;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package user;
 
+import db.DataBase;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author eli88popik@gmail.com
  */
-public class AdminLoginServelt extends HttpServlet {
+public class softwareServlet extends HttpServlet {
 
-    public static User user;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,15 +34,14 @@ public class AdminLoginServelt extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
         try (PrintWriter out = response.getWriter()) {
+            String year = request.getParameter("stYear");
             /* TODO output your page here. You may use following sample code. */
-            user=new User("Admin","Admin","Admin","Admin","Admin","Admin",1);
             
-            RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
-            request.getSession().setAttribute("user", user);
-            session.setAttribute("user", user);
-            getServletContext().setAttribute("user", user);
+            ArrayList<String> courses= DataBase.findCourses("Software",year);
+            RequestDispatcher rd = request.getRequestDispatcher("softwareScroll.jsp");
+            
+            request.setAttribute("msg", courses);
             rd.forward(request, response);
         }
     }

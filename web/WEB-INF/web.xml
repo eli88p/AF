@@ -52,7 +52,7 @@
     </servlet>
     <servlet>
         <servlet-name>softwareServlet</servlet-name>
-        <servlet-class>softwareServlet</servlet-class>
+        <servlet-class>courses.softwareServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UploadServlet</servlet-name>
@@ -81,6 +81,10 @@
     <servlet>
         <servlet-name>AdminLoginServelt</servlet-name>
         <servlet-class>user.AdminLoginServelt</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>chemistryServlet</servlet-name>
+        <servlet-class>courses.chemistryServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -126,9 +130,17 @@
         <servlet-name>AdminLoginServelt</servlet-name>
         <url-pattern>/AdminLoginServelt</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>chemistryServlet</servlet-name>
+        <url-pattern>/chemistryServlet</url-pattern>
+    </servlet-mapping>
     <error-page>
         <error-code>404</error-code>
         <location>/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/login.jsp</location>
     </error-page>
     <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
         <servlet>

@@ -4,6 +4,7 @@
     Author     : eli88popik@gmail.com
 --%>
 
+<%@page import="user.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,12 @@
         </style>
     </head>
     <body>
-        
+         <%
+            
+            if(((User)session.getAttribute("user")).getDepartment().equals("Admin")){%>           
+                    <script>parent.frames['head'].location.reload();</script>
+                    <%}
+
+        %>
     </body>
 </html>

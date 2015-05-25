@@ -50,8 +50,11 @@
         if(user==null){
             out.println("<a href='body.html' target='body'>Home</a></li>");
         }
+        else if(user.getDepartment().equals("Admin"))
+        {
+            out.println("<a href='admin.jsp' target='body'>Home</a></li>");
+        }
         else{
-            
             out.println("<a href='"+user.getDepartment()+"Index.jsp' target='body'>Home</a>");
             
         }
@@ -63,7 +66,7 @@
         if(user==null){
             out.println("<a href='login.jsp' target='body'>Log In</a>");
         }
-        else{
+        else {
             out.println("<a href='/AF/Logout' accsskey='1' target='body'>Log Out</a>");
             
         }

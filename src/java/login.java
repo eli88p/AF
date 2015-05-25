@@ -45,6 +45,14 @@ public class login extends HttpServlet {
                     getServletContext().setAttribute("user", user);
                     rd.forward(request, response);
                 }
+                if(user.getDepartment().equals("Chemistry"))
+                {
+                    RequestDispatcher rd = request.getRequestDispatcher("ChemistryIndex.jsp");
+                    request.getSession().setAttribute("user", user);
+                    session.setAttribute("user", user);
+                    getServletContext().setAttribute("user", user);
+                    rd.forward(request, response);
+                }
             }
             else
             {

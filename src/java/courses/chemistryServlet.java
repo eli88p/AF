@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package courses;
 
 import db.DataBase;
 import java.io.IOException;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author eli88popik@gmail.com
  */
-public class softwareServlet extends HttpServlet {
+public class chemistryServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,8 +37,8 @@ public class softwareServlet extends HttpServlet {
             String year = request.getParameter("stYear");
             /* TODO output your page here. You may use following sample code. */
             
-            ArrayList<String> courses= DataBase.findCourses("Software",year);
-            RequestDispatcher rd = request.getRequestDispatcher("softwareScroll.jsp");
+            ArrayList<String> courses= DataBase.findCourses("Chemistry",year);
+            RequestDispatcher rd = request.getRequestDispatcher("chemistryScroll.jsp");
             
             request.setAttribute("msg", courses);
             rd.forward(request, response);

@@ -1,3 +1,4 @@
+<%@page import="user.User"%>
 <!DOCTYPE html>
 <html>
 
@@ -191,9 +192,10 @@
             
         if(session.getAttribute("user")==null){%>           
         <script>parent.frames['head'].location.reload();</script>
-          <%}    
-            
-        
+        <%}
+           
+         
+       
         if(request.getAttribute("errormsg")!=null){
             String msg=request.getAttribute("errormsg").toString();
 

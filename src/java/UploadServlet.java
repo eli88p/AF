@@ -25,7 +25,7 @@ import org.apache.commons.io.FilenameUtils;
  * @author Shlomota
  */
 public class UploadServlet extends HttpServlet {
-    private final String UPLOAD_DIRECTORY = "C:\\Users\\Eli Popik\\Documents\\NetBeansProjects\\AF\\web\\uploads";
+    private String UPLOAD_DIRECTORY;
     boolean resultFlag=false;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -82,6 +82,10 @@ public class UploadServlet extends HttpServlet {
         //processRequest(request, response);
          //process only if its multipart content
         HttpSession session = request.getSession();
+        session=request.getSession();
+        User user=(User)session.getAttribute("user");
+        session.setAttribute("user", user);
+        UPLOAD_DIRECTORY="C:\\Users\\Eli Popik\\Documents\\NetBeansProjects\\AF\\web\\uploads\\" + session.getAttribute("course");
         if(ServletFileUpload.isMultipartContent(request)){
             try {
                 List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest( request);
@@ -90,7 +94,7 @@ public class UploadServlet extends HttpServlet {
                     if(!item.isFormField() && ValidateFileExtention(item)){
                         String name = new File(item.getName()).getName();
                         item.write( new File(UPLOAD_DIRECTORY + "/" + name));
-                        resultFlag=DataBase.AddFile(name, "/AF/uploads", (User)getServletContext().getAttribute("user"),session.getAttribute("course").toString());
+                        resultFlag=DataBase.AddFile(name, "/AF/uploads/" + session.getAttribute("course"), (User)getServletContext().getAttribute("user"),session.getAttribute("course").toString());
                         
                     }
                 }
@@ -111,7 +115,7 @@ public class UploadServlet extends HttpServlet {
             request.setAttribute("message","Sorry this Servlet only handles file upload request");
         }
     
-        request.getRequestDispatcher("Testing.jsp").forward(request, response);
+        request.getRequestDispatcher(session.getAttribute("course")+".jsp").forward(request, response);
      
     }
   

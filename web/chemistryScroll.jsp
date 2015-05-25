@@ -96,7 +96,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form action="softwareServlet">
+        <form action="chemistryServlet">
             <t1>Hello ${user.getfName()} ${user.getlName()}<br>
                 Department: ${user.getDepartment()} <br> Year: ${user.getsYear()}
                 <P align="right"><a href="profile.jsp" target="bodyCourse">Profile</a></P></t1>
