@@ -13,6 +13,14 @@ public class User extends SystemUser {
         this.sYear=year;
         this.valid="No";
     }
+    
+    public User(User us) {
+        super(us.getfName(), us.getlName(), us.getUserName(), us.getPassword(), us.getEmail());
+        this.department=us.getDepartment();
+        this.sYear=us.getsYear();
+        this.valid=us.getValid();
+    }
+    
 
     public String getDepartment() {
         return department;
@@ -20,6 +28,10 @@ public class User extends SystemUser {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+    
+    public void setFieldValid(String valid) {
+        this.valid = valid;
     }
     
     public String getValid() {

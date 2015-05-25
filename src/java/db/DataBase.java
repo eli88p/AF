@@ -70,6 +70,49 @@ public class DataBase {
         
     }
     
+    public static boolean unValidtionUser(String user)
+    {
+        
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            st.executeUpdate("update User set valid='No' where userName='" + user + "'");
+            st.close();
+            con.close();
+        }
+
+        catch (Exception e)
+        {
+            return false;
+        }
+        
+        return true;
+        
+    }
+    
+    public static boolean ValidtionUser(String user)
+    {
+        
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            st.executeUpdate("update User set valid='Yes' where userName='" + user + "'");
+            st.close();
+            con.close();
+        }
+
+        catch (Exception e)
+        {
+            return false;
+        }
+        
+        return true;
+        
+    }
 
     public static boolean checkValid(User user)
     {
@@ -366,6 +409,36 @@ public class DataBase {
             st.close();
             con.close();
             return Files;
+            
+        }
+        catch(Exception e)
+        {
+            
+        }
+        
+        return null;
+    }
+    
+    public static ArrayList<User> getAllUsers()
+    {
+        try
+        {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select * from User");
+            ArrayList<User> users = new ArrayList<User>();
+            User tmpUser;
+            while(rs.next())
+            {
+                
+                tmpUser = new User(rs.getString(3),rs.getString(4),rs.getString(1),rs.getString(2),rs.getString(5),rs.getString(6),rs.getInt(7));
+                tmpUser.setFieldValid(rs.getString(8));
+                users.add(tmpUser);
+            }
+            st.close();
+            con.close();
+            return users;
             
         }
         catch(Exception e)
