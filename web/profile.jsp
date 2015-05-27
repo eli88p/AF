@@ -107,35 +107,46 @@
         <form action="updateUser">
            
         <h1>Hello ${user.getfName()} ${user.getlName()}</h1><br>
+        <center>
         <table>  
-            
+            <img src="image/head.png" height="128" width="128"
+                 <br>
                <center>
-                   
-                                <p><tr><p align="right"><img src="image/head.png" height="128" width="128"></p><td>First Name:</td><td> <input type="text" name="fname" class="textbox" id="fname" value='${user.getfName()}'/></td> </p></tr>
-                                <tr><td><br><td><br></tr>
-                                <p><td>Last Name:</td><td> <input type="text" name="lname" class="textbox" id="lname" value='${user.getlName()}'/></td> </p></tr>
-                                <td><br><td><br></tr>
-                                <p><td>E-Mail:</td><td> <input type="text" name="emailF" class="textbox" id="emailF" value='${user.getEmail()}' disabled/></td> </p></tr>
-                                <td><br><td><br></tr>
-                                <p><td>User name:</td><td> <input type="text" name="us" class="textbox" id="us" value='${user.getUserName()}' disabled/></td> </p></tr>
-                                <td><br><td><br></tr>
-                                <p><td>Password:</td><td> <input type="text" name="up" class="textbox" id="up" value='${user.getPassword()}' disabled/></td> </p></tr>
-                                <td><br><td><br></tr>
-                                <p><td>Year of study:</td><td>
-                                       <select name="syear" class="dropdown" id="syear">
-                                            <option selected>${user.getsYear()}</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select> 
-                                    </td> </p></tr>
-                                    <tr><td><br><td><br></tr>
+                   <tr>
+                       <td>First Name:</td>
+                       <td> <input type="text" name="fname" class="textbox" id="fname" value='${user.getfName()}'/></td>
+                       <td> </td>
+                       <td>Last Name:</td>
+                       <td><input type="text" name="lname" class="textbox" id="lname" value='${user.getlName()}'/></td>
+                   </tr>
+                   <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+                   <tr>
+                       <td>E-Mail:</td>
+                       <td><input type="text" name="emailF" class="textbox" id="emailF" value='${user.getEmail()}' disabled/></td>
+                       <td> </td>
+                       <td>User name:</td>
+                       <td><input type="text" name="userName" class="textbox" id="userName" value='${user.getUserName()}' readonly/></td>
+                   </tr>
+                   <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+                   <tr>
+                       <td>Year of study:</td>
+                       <td><select name="syear" class="dropdown" id="syear">
+                                <option selected>${user.getsYear()}</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                        </select></td>
+                        <td> </td>
+                        <td>Password:</td>
+                        <td><input type="text" name="up" class="textbox" id="up" value='${user.getPassword()}' disabled/></td>
+                   </tr>
                   
              </center>                    
             </table>
-                <input href="#" type="submit" class="myButton" value="Update" onclick="return validateSignInForm()"/>
-                <input href="#" type="reset" class="myButton" value="Clear all"/>
+                   <center>
+                       <br>
+                <input href="#" type="submit" class="myButton" value="Update"/>
                 <input href="#" type="button" class="myButton" value="Back" onclick='history.go(-1);return true;'/>
             </form>
         </t1>
