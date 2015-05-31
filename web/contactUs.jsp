@@ -10,6 +10,7 @@ and open the template in the editor.
             body{
                 background-image: url(image/bg.jpg);
             }
+            
             .textbox { 
                 background: white; 
                 border: 5px solid white; 

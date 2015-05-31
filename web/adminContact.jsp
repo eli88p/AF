@@ -23,7 +23,17 @@ and open the template in the editor.
                 height:23px; 
                 width: 275px;
                 
-              } 
+              }
+              .dropdown { 
+                        background: white; 
+                        border: 5px solid white; 
+                        border-radius: 5px; 
+                        box-shadow: 0 0 5px 3px white; 
+                        color:black;
+                        outline: none; 
+                        height:30px; 
+                        width: 285px;
+                      } 
               .textarea { 
                 background: white; 
                 border: 5px solid white; 

@@ -41,9 +41,23 @@ public class emailValidation extends HttpServlet {
             user = DataBase.FindUser(un, up);
             
             if(user != null && DataBase.ValidtionUser(user)!=false){
-                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-                request.setAttribute("errormsg", "Validtion of user successfuly!");
-                rd.forward(request, response);
+                out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<style>");
+            out.println("h1{color: white;size: 16px;font-family:Impact}t1{color: white;size: 14px;font-family:Impact;}body{background-image: url(image/bg.jpg);text-align: center;}");
+            out.println("</style>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<br><br><br><br><br><center>");
+            if(request.getAttribute("errormsg").equals("Validtion of user successfuly!"))
+                out.println("<h1>Validtion of user successfuly!</h1>");
+            else
+                out.println("<h1>Some error in validtion!</h1>");
+            out.println("<h1>Please login again!</h1>");
+            out.println("</body>");
+            out.println("</html>");
+            out.println("<!DOCTYPE html>");
             }
         }
     }
