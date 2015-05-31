@@ -41,7 +41,8 @@ public class emailValidation extends HttpServlet {
             user = DataBase.FindUser(un, up);
             
             if(user != null && DataBase.ValidtionUser(user)!=false){
-                RequestDispatcher rd = request.getRequestDispatcher("index.html");
+                RequestDispatcher rd = request.getRequestDispatcher("indexWithLogin.html");
+                request.setAttribute("errormsg","Validation successful");
                 rd.forward(request, response);
             }
         }
