@@ -103,6 +103,14 @@
         <br>
     <center>
         <form action="blockUser">
+            <%
+                if(request.getAttribute("ErrorMessage")!=null){
+                    String msg=request.getAttribute("ErrorMessage").toString();
+
+                if(!msg.equals(""))
+                    out.print("<script>alert('"+msg+"');</script>");
+                }
+            %>
         <table>
             
             <tr><td>Select user name : <td></td></td>
@@ -133,7 +141,6 @@
                     <td>
 
                     <select name="userN" class="dropdown" id="userN">
-
                         <%
 
                             if(users.get(0).getValid().equals("No"))
@@ -174,8 +181,12 @@
                     <td> 
                         <input href="#" type="submit" class="myButton" value="Update User Depatment"/>
                     </td></tr> 
+               
             </table>
-        </form>  
+        </form> 
+                     <form action="adminContact.jsp" method="get">
+                            <input type="submit" class="myButton" value="Contact with user" name="Submit"/>
+                     </form>
     </center>
     </body>
 </html>
