@@ -6,6 +6,50 @@ and open the template in the editor.
 -->
 <html>
     <head>
+        <script>
+            $("#submit").click(function(){
+            var valid = emailValid();
+            if(valid){
+              /// Then your rest of process here.
+            }
+            });
+            function emailValid(){
+                var valid = true;
+                var validationMessage = 'Please correct the following errors:\r\n';
+                
+                if(document.getElementById('cu_name').value === "") {
+                    validationMessage = validationMessage + '  - Name is missing!\r\n';
+                    //document.getElementById("emailF").style.borderColor = "#E34234";
+                    //document.getElementById("emailS").style.borderColor = "#E34234";
+                    valid = false;
+                }
+                if(document.getElementById('cu_message').value === "") {
+                    validationMessage = validationMessage + '  - Message is missing!\r\n';
+                    //document.getElementById("emailF").style.borderColor = "#E34234";
+                    //document.getElementById("emailS").style.borderColor = "#E34234";
+                    valid = false;
+                }
+                if(document.getElementById('cu_email').value === "") {
+                    validationMessage = validationMessage + '  - E-Mail is missing!\r\n';
+                    //document.getElementById("emailF").style.borderColor = "#E34234";
+                    //document.getElementById("emailS").style.borderColor = "#E34234";
+                    valid = false;
+                }
+                else{
+                    re=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if(!re.test(document.getElementById('cu_email').value)) {
+                        validationMessage = validationMessage + '  - Invalid email address!\r\n';
+                        //document.getElementById("emailF").style.borderColor = "#E34234";
+                        valid = false;
+                    }
+                }
+ 
+                if (valid === false){
+                    alert(validationMessage);
+                }
+                return valid;
+            }
+        </script>
         <style>
             body{
                 background-image: url(image/bg.jpg);
@@ -99,25 +143,26 @@ and open the template in the editor.
                             <tr><p><td>
                                 <font style="color:white">Your name: 
                             </td><td>
-                                <input type="text" name="cu_name" class="textbox" value="${user.getfName()} ${user.getlName()}">
+                                <input type="text" name="cu_name" id="cu_name" class="textbox" value="${user.getfName()} ${user.getlName()}">
                             </td></p></tr>
                             <tr><td><br><td><br></tr>
                             <tr><p><td>
                                 <font style="color:white">Your e-mail: 
                             </td><td>
-                                <input type="text" name="cu_email" class="textbox" value="${user.getEmail()}">
+                                <input type="text" name="cu_email" id="cu_email" class="textbox" value="${user.getEmail()}">
                             </td> </p></tr>
                             <tr><td><br><td><br></tr>
                             <tr><p><td>
                                 <font style="color:white">Message: 
                             </td><td>
-                                <textarea name="cu_message" class="textarea"  rows="4" cols="50"></textarea>
+                                <textarea name="cu_message" id="cu_message" class="textarea"  rows="4" cols="50"></textarea>
                             </td></p></tr>
                             <tr><td><br><td><br></tr>
                         </table>
                     </center>
                 </section>
-            <input type="submit" value="Send" class="myButton">
+            <input href="#" type="submit" class="myButton" value="Send" onclick="return emailValid()"/>
+            
             <input type="reset" value="Clear" class="myButton">
         </form>
     </body>

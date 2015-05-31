@@ -262,6 +262,7 @@
     
                             </table></center>
 			</form>
+                    
                     <input href="#" type="submit" class="myButton" value="Sign In" onclick="return validateSignInForm()"/>
                     <input href="#" type="reset" class="myButton" value="Clear all"/>
 		</section>

@@ -37,13 +37,17 @@ public class unblockUser extends HttpServlet {
         HttpSession session = request.getSession();
         try (PrintWriter out = response.getWriter()) {
             String selectedUser=request.getParameter("userN");
-            DataBase.ValidtionUser(selectedUser);
+            boolean flag=DataBase.ValidtionUser(selectedUser);
             RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
-            
+            if(flag=false)
+                 request.setAttribute("message", "User can't unblocked!");
+            else
+                request.setAttribute("message", "User unblocked!");
             request.getSession().setAttribute("user", user);
             session.setAttribute("user", user);
             getServletContext().setAttribute("user", user);
             rd.forward(request, response);
+            
         }
     }
 

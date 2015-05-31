@@ -95,6 +95,12 @@
     </head>
     <body>
          <%
+            if(request.getAttribute("message")!=null){
+                String msg=request.getAttribute("message").toString();
+                if(!msg.equals(""))
+                    out.print("<script>alert('"+msg+"');</script>");
+            }
+                    
             if(((User)session.getAttribute("user")).getDepartment().equals("Admin")){%>           
                     <script>parent.frames['head'].location.reload();</script>
                     <%}

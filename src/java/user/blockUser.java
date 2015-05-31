@@ -37,9 +37,12 @@ public class blockUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String selectedUser=request.getParameter("userN");
-            DataBase.unValidtionUser(selectedUser);
+            boolean flag=DataBase.unValidtionUser(selectedUser);
             RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
-            
+            if(flag=true)
+                 request.setAttribute("message", "User blocked!");
+            else
+                request.setAttribute("message", "User not blocked!");
             request.getSession().setAttribute("user", user);
             session.setAttribute("user", user);
             getServletContext().setAttribute("user", user);

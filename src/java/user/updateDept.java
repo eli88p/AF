@@ -38,9 +38,12 @@ public class updateDept extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String selectedUser=request.getParameter("userNDep");
             String selectedDep=request.getParameter("userDep");
-            DataBase.UpdateUserDep(selectedUser.toString(), selectedDep.toString());
+            boolean flag=DataBase.UpdateUserDep(selectedUser.toString(), selectedDep.toString());
             RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
-            
+            if(flag=true)
+                 request.setAttribute("message", "User department changed!");
+            else
+                request.setAttribute("message", "User department not changed!");
             request.getSession().setAttribute("user", user);
             session.setAttribute("user", user);
             getServletContext().setAttribute("user", user);
