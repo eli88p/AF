@@ -6,7 +6,7 @@ public class User extends SystemUser {
     private int sYear;
     private String valid;
 
-
+/*get and set user department, year and if validetion*/
     public User(String fn, String ln, String un, String pass, String email ,String depat ,int year) {
         super(fn, ln, un, pass, email);
         this.department=depat;

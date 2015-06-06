@@ -40,6 +40,7 @@ public class AdminContact extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* get the name selected user and the message */
             String selectedUser=request.getParameter("userName");
             String name = "Admin of AcademicFeed";
             String email = DataBase.FindUser(selectedUser).getEmail();
@@ -70,6 +71,7 @@ public class AdminContact extends HttpServlet {
                 Transport.send(msg);
 
             }
+            /* if can't sand the mail show errore massage */
             catch (AuthenticationFailedException ex) {
                 request.setAttribute("ErrorMessage", "Authentication failed");
             }

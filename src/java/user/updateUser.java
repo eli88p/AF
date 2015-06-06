@@ -36,7 +36,7 @@ public class updateUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            /* check the user details and change it and send relevant message*/ 
             String fName=request.getParameter("fname");
             String lName=request.getParameter("lname");
             String userName=request.getParameter("userName");

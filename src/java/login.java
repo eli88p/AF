@@ -30,11 +30,12 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         try (PrintWriter out = response.getWriter()) {
+            /*get user name and password*/
             String un = request.getParameter("username");
             String up = request.getParameter("userpass");
             
             user = DataBase.FindUser(un, up);
-       
+       /*check if user in database*/
             if(user != null && DataBase.checkValid((User)user)==true)
             {
 
@@ -48,9 +49,11 @@ public class login extends HttpServlet {
             }
             else
             {
+                /*error message if user name or password isn't correct*/
                 if(user == null)
                     request.setAttribute("errormsg", "Wrong Username or Password");
                 else if(DataBase.checkValid((User)user)==false)
+                    /*request to confrim the account*/
                     request.setAttribute("errormsg", "Please confirm your account from e-Mail");
                 RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                 rd.forward(request, response);

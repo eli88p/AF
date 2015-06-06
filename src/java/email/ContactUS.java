@@ -38,7 +38,7 @@ public class ContactUS extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            /* get the name email and the message */
             String name = request.getParameter("cu_name");
             String email = request.getParameter("cu_email");
             String message = request.getParameter("cu_message");
@@ -68,6 +68,7 @@ public class ContactUS extends HttpServlet {
                 Transport.send(msg);
 
             }
+            /* if can't sand the mail show errore massage */
             catch (AuthenticationFailedException ex) {
                 request.setAttribute("ErrorMessage", "Authentication failed");
             }

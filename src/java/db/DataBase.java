@@ -13,12 +13,15 @@ public class DataBase {
         try
         {
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            /*connect to database*/
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
+            /*get user details from table*/
             ResultSet rs = st.executeQuery("Select * from User where userName='" + user + "' and pass='" + Password + "'");
 
             if(rs.next())
             {
+                /*enter new user to database*/
                 String columnUser = rs.getString(1);
                 String columnPassword = rs.getString(2);
                 if(columnUser.equals(user) && columnPassword.equals(Password))
@@ -58,7 +61,7 @@ public class DataBase {
             ResultSet rs = st.executeQuery("Select * from User where userName='" + user + "'");
 
             if(rs.next())
-            {
+            {/*get user from database*/
                 String columnUser = rs.getString(1);
                 String columnPassword = rs.getString(2);
                 if(columnUser.equals(user))
@@ -92,7 +95,7 @@ public class DataBase {
     {
         user.setVaild();
         try
-        {
+        {/*set user validation*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -114,7 +117,7 @@ public class DataBase {
     {
         
         try
-        {
+        {/*set user unvalidation*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -190,7 +193,7 @@ public class DataBase {
     public static Admin FindAdmin(String user ,String Password)
     {
         try
-        {
+        {/*get admin from database*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db","","");
             Statement st = con.createStatement();
@@ -233,6 +236,7 @@ public class DataBase {
     {
         try
         {
+            /*check if user already exist*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -280,7 +284,7 @@ public class DataBase {
     public static boolean isEmailTaken(String mail)
     {
         try
-        {
+        {/*check if email already exist*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -325,10 +329,11 @@ public class DataBase {
 
     public static boolean AddUser(User newUser)
     {
+        /*check if user and email already exist*/
         if(!DataBase.isUserTaken(newUser.getUserName()) && !DataBase.isEmailTaken(newUser.getEmail()))
         {
             try
-            {
+            {/*add new user*/
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
                 Statement st = con.createStatement();
@@ -353,6 +358,7 @@ public class DataBase {
     {
             try
             {
+                /*update user department*/
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
                 Statement st = con.createStatement();
@@ -374,7 +380,7 @@ public class DataBase {
     public static boolean UpdateUser(String userName,String fName,String lName,int sYear)
     {
             try
-            {
+            {/*update user details*/
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
                 Statement st = con.createStatement();
@@ -396,7 +402,7 @@ public class DataBase {
     public static ArrayList<String> findCourses(String depart ,String year)
     {
         try
-        {
+        {/*get courses from department*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -422,7 +428,7 @@ public class DataBase {
     public static boolean isFileTaken(String fileName,String patch)
     {
         try
-        {
+        {/*check if file already exist*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -453,7 +459,7 @@ public class DataBase {
         if(!DataBase.isFileTaken(filename, patch))
         {
             try
-            {
+            {/*add a new file*/
                 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
                 Statement st = con.createStatement();
@@ -478,7 +484,7 @@ public class DataBase {
     public static ArrayList<String> findFiles(String depart ,String course)
     {
         try
-        {
+        {/*get files from data base*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();
@@ -506,7 +512,7 @@ public class DataBase {
     public static ArrayList<User> getAllUsers()
     {
         try
-        {
+        {/*get all users from database*/
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Connection con = DriverManager.getConnection("jdbc:odbc:db", "", "");
             Statement st = con.createStatement();

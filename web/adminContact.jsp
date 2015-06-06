@@ -96,6 +96,7 @@ and open the template in the editor.
         
         <form action="AdminContact">
             <%
+                //get all users from database
                 ArrayList<User> users = DataBase.getAllUsers();
             %>
             <div id="main" style="font-family:Impact">
@@ -109,6 +110,7 @@ and open the template in the editor.
                             </td><td>
                                 <select name="userName" class="dropdown" id="userName">
                                     <%
+                //choose user name from dropdown list.
                                         for(int i=0;i<users.size();i++)
                                         {
                                             out.println("<option>"+users.get(i).getUserName().toString()+"</option>");
@@ -122,6 +124,7 @@ and open the template in the editor.
                             <tr><p><td>
                                 <font style="color:white">Message: 
                             </td><td>
+                                <!-->write the message <-->
                                 <textarea name="cu_message" class="textarea"  rows="4" cols="50"></textarea>
                             </td></p></tr>
                             <tr><td><br><td><br></tr>

@@ -4,7 +4,7 @@
 
 <head>
 	<style>
-		
+		//design and backround of the page
 	
 		*{
 			margin: 0;
@@ -86,7 +86,7 @@
             function validateLoginForm(){
                 var valid = true;
                 var validationSiginMessage = 'Please correct the following errors:\r\n';
-               
+               //check if the user enter his username and his password or they are empty.
                 if ((document.getElementById('username').value.length === 0)||(document.getElementById('userpass').value.length === 0)){
                     if (document.getElementById('username').value.length === 0){
                         validationSiginMessage = validationSiginMessage + '  - User Name is missing!\r\n';
@@ -98,7 +98,7 @@
                     }
                     valid = false;
                 }
-                
+                //check if the user enter his username and his password correct or not.
                 if(document.getElementById('userpass').value !== "" && document.getElementById('username').value !== "") {
                     re = /^\w+$/;
                     if(!re.test(document.getElementById('username').value)) {
@@ -147,7 +147,7 @@
                     }
                 }
    
-                
+                //if there is any validation problem show alrt message.
                 if (valid === false){
                     alert(validationSiginMessage);
                 }

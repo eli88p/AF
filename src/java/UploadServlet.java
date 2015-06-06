@@ -88,6 +88,7 @@ public class UploadServlet extends HttpServlet {
         UPLOAD_DIRECTORY="C:\\Users\\Eli Popik\\Documents\\NetBeansProjects\\AF\\web\\uploads\\" + session.getAttribute("course");
         if(ServletFileUpload.isMultipartContent(request)){
             try {
+                /*file uploading*/
                 List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest( request);
               
                 for(FileItem item : multiparts){
@@ -104,10 +105,12 @@ public class UploadServlet extends HttpServlet {
                
            }
            else{
+               /*error message if type isn't correct*/
                 request.setAttribute("message", "File Uploaded: please upload only DOC or PDF or DOCX files! or file exist!");
 
            }
             } catch (Exception ex) {
+                /*error message by exception*/
                request.setAttribute("message", "File Upload Failed due to " + ex);
             }          
          

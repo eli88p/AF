@@ -111,7 +111,7 @@
                     }
                     valid = false;
                 }
-                
+                //Validate details of username and password text box in form
                 if(document.getElementById('userpassF').value !== "" && document.getElementById('username').value !== "") {
                     re = /^\w+$/;
                     if(!re.test(document.getElementById('username').value)) {
@@ -171,7 +171,7 @@
                         valid = false;
                     }
                 }
-                
+                //check if there is missing details
                 if(document.getElementById('fname').value === "") {
                         validationMessage = validationMessage + '  - First Name is missing!\r\n';
                         //document.getElementById("fname").style.borderColor = "#E34234";
@@ -191,13 +191,14 @@
                     valid = false;
                 }
                 else{
+                    //check if email address is correct
                     re=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
                     if(!re.test(document.getElementById('emailF').value)) {
                         validationMessage = validationMessage + '  - Invalid email address!\r\n';
                         //document.getElementById("emailF").style.borderColor = "#E34234";
                         valid = false;
                     }
-
+               //check if email address retyped correct
                     if(document.getElementById('emailF').value !== document.getElementById('emailS').value) {
                         validationMessage = validationMessage + '  - There is different between E-Mails!\r\n';
                         //document.getElementById("emailF").style.borderColor = "#E34234";
@@ -270,6 +271,7 @@
       
 	</div>
         <%
+            //print eeror message on the screen.
         if(request.getAttribute("errormsg")!=null){
             String msg=request.getAttribute("errormsg").toString();
 

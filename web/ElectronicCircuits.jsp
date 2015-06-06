@@ -128,7 +128,7 @@
             </p>
             <br><br>
             <center>
-                <%
+                <%//check if there any message and print it.
                     if(request.getAttribute("message")!=null){
                         String msg=request.getAttribute("message").toString();
 
@@ -136,7 +136,7 @@
                         out.print("<script>alert('"+msg+"');</script>");
                     }
 
-    
+    //check which type of file is pdf or doc and show it on screen.
                     ArrayList<String> listOfFiles= DataBase.findFiles("Electrical", course);
                     for(int i=0;i<listOfFiles.size();i++){
                         out.print("<div>");

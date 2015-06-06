@@ -95,6 +95,7 @@
     </head>
     <body>
          <%
+             //check if there is any alert message and print it on the screen.
             if(request.getAttribute("message")!=null){
                 String msg=request.getAttribute("message").toString();
                 if(!msg.equals(""))
@@ -110,6 +111,7 @@
     <center>
         <form action="blockUser">
             <%
+            // check if ther is any error message and print it.
                 if(request.getAttribute("ErrorMessage")!=null){
                     String msg=request.getAttribute("ErrorMessage").toString();
 
@@ -125,7 +127,9 @@
                 <select name="userN" class="dropdown" id="userN">
                     
                     <%
+                // get all users from the database.
                         ArrayList<User> users = DataBase.getAllUsers();
+                        //check if the user are validate by admin and active and show it on dropdown list.
                         if(users.get(0).getValid().equals("Yes"))
                             out.println("<option selected>"+users.get(0).getUserName().toString()+"</option>");
                         for(int i=1;i<users.size();i++)
@@ -148,7 +152,7 @@
 
                     <select name="userN" class="dropdown" id="userN">
                         <%
-
+ //check if the user are validate by admin and  not active and show it on dropdown list.
                             if(users.get(0).getValid().equals("No"))
                                 out.println("<option selected>"+users.get(0).getUserName().toString()+"</option>");
                             for(int i=1;i<users.size();i++)
@@ -169,6 +173,7 @@
                     <td>
                     <select name="userNDep" class="dropdown" id="userNDep">
                         <%
+                             //check if the user are validate by admin and show it on dropdown list.
                             for(int i=0;i<users.size();i++)
                             {
                                 out.println("<option>"+users.get(i).getUserName().toString()+"</option>");

@@ -36,6 +36,7 @@ public class updateDept extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         try (PrintWriter out = response.getWriter()) {
+            /* check the user department and change it and send relevant message*/
             String selectedUser=request.getParameter("userNDep");
             String selectedDep=request.getParameter("userDep");
             boolean flag=DataBase.UpdateUserDep(selectedUser.toString(), selectedDep.toString());

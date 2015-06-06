@@ -35,12 +35,14 @@ public class emailValidation extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* get user name and password */
             String un = request.getParameter("username");
             String up = request.getParameter("userpass");
-            
+            /*get the user*/
             user = DataBase.FindUser(un, up);
             
             if(user != null && DataBase.ValidtionUser(user)!=false){
+                /*check if the user exist and the validation is correct*/
                 RequestDispatcher rd = request.getRequestDispatcher("indexWithLogin.html");
                 request.setAttribute("errormsg","Validation successful");
                 rd.forward(request, response);

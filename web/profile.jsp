@@ -105,7 +105,7 @@
     </head>
     <body><t1>
         <form action="updateUser">
-           
+           <!-->update user profile<-->
         <h1>Hello ${user.getfName()} ${user.getlName()}</h1><br>
         <center>
         <table>  

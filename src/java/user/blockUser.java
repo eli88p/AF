@@ -40,6 +40,7 @@ public class blockUser extends HttpServlet {
             boolean flag=DataBase.unValidtionUser(selectedUser);
             RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
             if(flag=true)
+                /*check if user is blocked and block it*/
                  request.setAttribute("message", "User blocked!");
             else
                 request.setAttribute("message", "User not blocked!");

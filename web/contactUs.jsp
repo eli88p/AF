@@ -16,19 +16,21 @@ and open the template in the editor.
             function emailValid(){
                 var valid = true;
                 var validationMessage = 'Please correct the following errors:\r\n';
-                
+                //check if the name exist or is correct.
                 if(document.getElementById('cu_name').value === "") {
                     validationMessage = validationMessage + '  - Name is missing!\r\n';
                     //document.getElementById("emailF").style.borderColor = "#E34234";
                     //document.getElementById("emailS").style.borderColor = "#E34234";
                     valid = false;
                 }
+                 //check if the message exist or is correct.
                 if(document.getElementById('cu_message').value === "") {
                     validationMessage = validationMessage + '  - Message is missing!\r\n';
                     //document.getElementById("emailF").style.borderColor = "#E34234";
                     //document.getElementById("emailS").style.borderColor = "#E34234";
                     valid = false;
                 }
+                  //check if the email exist or is correct.
                 if(document.getElementById('cu_email').value === "") {
                     validationMessage = validationMessage + '  - E-Mail is missing!\r\n';
                     //document.getElementById("emailF").style.borderColor = "#E34234";
@@ -127,6 +129,7 @@ and open the template in the editor.
     <body>
         <form action="ContactUS">
             <%
+                // check if there error message and show it
                 if(request.getAttribute("ErrorMessage")!=null){
                     String msg=request.getAttribute("ErrorMessage").toString();
 

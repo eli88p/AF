@@ -40,6 +40,7 @@ public class unblockUser extends HttpServlet {
             boolean flag=DataBase.ValidtionUser(selectedUser);
             RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
             if(flag=false)
+                /*check if user is unblocked and unblock it*/
                  request.setAttribute("message", "User can't unblocked!");
             else
                 request.setAttribute("message", "User unblocked!");

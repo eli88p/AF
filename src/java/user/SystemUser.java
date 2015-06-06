@@ -9,7 +9,7 @@ public class SystemUser {
     private String password;
     private String email;
 
-
+    /*get and set user details*/
     public SystemUser(String fn,String ln,String un,String pass,String email)
     {
         this.fName=fn;

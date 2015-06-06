@@ -46,15 +46,16 @@
 <body>
 <ul>
 <li><%
+    //get user attribute
         User user=(User)session.getAttribute("user");
-        if(user==null){
+        if(user==null){//if not user go to home page
             out.println("<a href='body.html' target='body'>Home</a></li>");
         }
         else if(user.getDepartment().equals("Admin"))
-        {
+        {//if user is admin go to admin page
             out.println("<a href='admin.jsp' target='body'>Home</a></li>");
         }
-        else{
+        else{//if user exist open his page by department
             out.println("<a href='"+user.getDepartment()+"Index.jsp' target='body'>Home</a>");
             
         }
@@ -62,7 +63,7 @@
 <li><a href="about.html" target="body">About</a></li>
 <li>
    
-    <%
+    <%//change button if user login or not.
         if(user==null){
             out.println("<a href='login.jsp' target='body'>Log In</a>");
         }

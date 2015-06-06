@@ -111,6 +111,7 @@ and open the template in the editor.
     <body>
         <center>
              <div>
+                 <!-->page df file upload with two buttons that allow to choose file and upload it.<-->
                  <br><br><br><br><br><br><br><br><text1> <b>Choose File to Upload (Only PDF, DOC, DOCX): </b><br><br>
                         <form action="UploadServlet" method="post" enctype="multipart/form-data">
                             <input type="file" class="myBut" name="file" /><br><br><br>

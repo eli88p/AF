@@ -37,6 +37,7 @@ public class signIn extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        /*get the details by user*/
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String un = request.getParameter("username");
@@ -50,6 +51,7 @@ public class signIn extends HttpServlet {
             user=new User(fn,ln,un,up,email,dep,syear);
             
             if(user!=null){
+                /*error message if user isn't correct*/
                 if(DataBase.AddUser(user)==false){
                     RequestDispatcher rd = request.getRequestDispatcher("signin.jsp");
                     request.setAttribute("errormsg", "Can't create user! Please try again!");
@@ -57,6 +59,7 @@ public class signIn extends HttpServlet {
                 }
                 else
                 {
+                    /* message if user is correct*/
                     String from = "AcafemicFeed";
                     String to = email;
                     String subject = fn+" "+ln+" wellcom to academicFeed";
@@ -66,6 +69,7 @@ public class signIn extends HttpServlet {
                     
                     String link = "<br>For account validation, Please enter: http://academicfeed.ddns.net/AF/emailValidation?username="+un+"&userpass="+up;
                     try {
+                        /*send validation message*/
                         Properties props = new Properties();
                         props.setProperty("mail.host", "smtp.gmail.com");
                         props.setProperty("mail.smtp.port", "587");
@@ -85,11 +89,13 @@ public class signIn extends HttpServlet {
                         Transport.send(msg);
 
                     } catch (AuthenticationFailedException ex) {
+                        /*error message if details isn't correct*/
                         request.setAttribute("ErrorMessage", "Authentication failed");
 
                        
 
                     } catch (AddressException ex) {
+                        /*error message if mail isn't correct*/
                         request.setAttribute("ErrorMessage", "Wrong email address");
 
                         
@@ -124,11 +130,13 @@ public class signIn extends HttpServlet {
                         Transport.send(msg);
 
                     } catch (AuthenticationFailedException ex) {
+                        /*error message if details isn't correct*/
                         request.setAttribute("ErrorMessage", "Authentication failed");
 
                        
 
                     } catch (AddressException ex) {
+                        /*error message if mail isn't correct*/
                         request.setAttribute("ErrorMessage", "Wrong email address");
 
                         
@@ -138,6 +146,7 @@ public class signIn extends HttpServlet {
 
                        
                     }
+                    /* message if create user is success*/
                     RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                     request.setAttribute("errormsg", "Creating of user successfuly!");
                     rd.forward(request, response);

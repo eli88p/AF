@@ -34,9 +34,10 @@ public class chemistryServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /*set the deaprtment page by study year and of the relevants courses in the scroll*/
             String year = request.getParameter("stYear");
             /* TODO output your page here. You may use following sample code. */
-            
+            /**/
             ArrayList<String> courses= DataBase.findCourses("Chemistry",year);
             RequestDispatcher rd = request.getRequestDispatcher("chemistryScroll.jsp");
             
