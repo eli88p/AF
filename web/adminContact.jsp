@@ -124,7 +124,7 @@ and open the template in the editor.
                             <tr><p><td>
                                 <font style="color:white">Message: 
                             </td><td>
-                                <!-->write the message <-->
+                                <!--write the message -->
                                 <textarea name="cu_message" class="textarea"  rows="4" cols="50"></textarea>
                             </td></p></tr>
                             <tr><td><br><td><br></tr>

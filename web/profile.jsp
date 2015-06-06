@@ -1,8 +1,3 @@
-<%-- 
-    Document   : profile
-    Created on : May 22, 2015, 3:32:06 AM
-    Author     : eli88popik@gmail.com
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -105,7 +100,7 @@
     </head>
     <body><t1>
         <form action="updateUser">
-           <!-->update user profile<-->
+           <!--update user profile-->
         <h1>Hello ${user.getfName()} ${user.getlName()}</h1><br>
         <center>
         <table>  

@@ -97,12 +97,12 @@
     </head>
     <body>
         <form action="chemistryServlet">
-            <!-->show user details<-->
+            <!--show user details-->
             <t1>Hello ${user.getfName()} ${user.getlName()}<br>
                 Department: ${user.getDepartment()} <br> Year: ${user.getsYear()}
                 <P align="right"><a href="profile.jsp" target="bodyCourse">Profile</a></P></t1>
                         <t2>
-                            <!-->choose year from dropdown list<-->
+                            <!--choose year from dropdown list-->
                             Select Year :
                             <select name="stYear" id="dropdown" onchange="submit()" class="textbox">
                                 <option value="dropdown">Select one</option>
